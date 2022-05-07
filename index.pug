@@ -1,15 +1,59 @@
 extends app
 
-block TIDORY
-  s_t3
-    #__tidory
-      include views/Header
-
+block macjjuni
   style.
-    #__tidory {
-      height: 100vh;
-      align-items: center;
-      display: flex;
-      justify-content: center;
-      text-align: center;
+    @import url('https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css');
+    html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite,
+    code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li,
+    fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure,
+    figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video{
+      margin: 0;
+      padding: 0;
+      border: 0;
+      font-size: 100%;
+      font: inherit;
+      vertical-align: baseline;
     }
+    article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+      display: block;
+    }
+    body { line-height: 1; }
+    ol, ul { list-style: none; }
+    blockquote, q { quotes: none; }
+    blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
+    table { border-collapse: collapse; border-spacing: 0; }
+    a { text-decoration: none;color: #000; }
+    *, html, body { box-sizing: border-box; font-family: 나눔스퀘어, 'NanumSquare', sans-serif; }
+
+    button {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0.65rem 2.5rem;
+      font-size: 1.05rem;
+      border: 1px solid #eee;
+      color: #292929;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+      cursor: pointer;
+      transition: 0.1s;
+    }    
+    button:hover { box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px; }
+    button>span {
+      position: relative;
+      top: 2px;
+    }
+        
+    .AppWrap { 
+      position: relative;
+      padding: 60px 0 0 280px;
+      background-color: #f6f6f6; 
+    }
+    .dark .AppWrap { background-color: #222427; }
+
+  s_t3
+    div.AppWrap
+      include views/Header
+      include views/sidebar
+      include views/Content

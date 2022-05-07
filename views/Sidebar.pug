@@ -1,0 +1,15 @@
+aside#sidebar
+    include Sidebar/Profile
+    include Sidebar/Category
+    include Sidebar/Social
+
+    style.
+        #sidebar {
+            position: fixed;
+            top: 0; left: 0;
+            width: 280px; height: 100%;
+            padding: calc(60px + 1rem) 1rem 1rem 1rem;
+            background-color: #f6f6f6;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+            user-select: none;
+        }

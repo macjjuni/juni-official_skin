@@ -1,0 +1,55 @@
+div.cate-wrap
+    div.list-wrap
+        h3 
+            i(class="bx bx-sm bx-code-alt")
+            span Category
+        | [##_category_list_##]
+    div.list-wrap
+        h3 
+            i(class="bx bx-sm bx-category")
+            span Menu
+        | [##_blog_menu_##]
+
+    script(scoped).
+        window.onload = () => document.querySelector('.link_tit').style.display = 'none';
+
+
+style.
+    .cate-wrap{
+        margin-top: 1.5rem;
+    }
+    .list-wrap {
+        padding: 1.5rem 0.4rem;
+        border-top: 1px solid #dddddd;
+    }
+    .link_tit{
+        display: none;
+    }
+    .list-wrap > h3 {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        font-size: 1.3rem;
+        font-weight: bold;
+    }
+    .bx-code-alt, .bx-category{
+        margin-right: 0.5rem;
+    }
+    .list-wrap>ul {
+        padding: 0.6rem 0 0 0.5rem;
+    }
+    .list-wrap>ul>li>a, .category_list>li>a {
+        position: relative;
+        display: block;
+        font-size: 1.05rem;
+        padding: 0.5rem 0.2rem;
+        margin: 0.2rem 0;
+        overflow: hidden;
+        transition: 0.3s ease;
+    }
+    .list-wrap>ul>li>a:hover, .category_list>li>a:hover {
+        text-decoration-line: underline;
+        text-decoration-style: solid;
+        text-underline-offset: 3px;
+        text-decoration-thickness: 2px;
+    }

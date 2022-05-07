@@ -1,0 +1,27 @@
+div.right-menu
+    button.theme-toggle
+        i(class="bx bx-md bx-moon")
+    button.mobile-menu
+        i(class="bx bx-md bx-menu")
+
+    style.
+        .right-menu {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .bx-moon, .bx-menu { transition: 0.4s; }
+        .theme-toggle:hover .bx-moon { color: #9e3dff; }
+        .theme-toggle, .mobile-menu{
+            padding: 0.25rem;
+            border: none;
+            background: none;
+            box-shadow: none;
+            margin-left: 0.5rem;
+            transition: 0.4s;
+        }
+        .theme-toggle:hover, .mobile-menu:hover {
+            box-shadow: none;
+            background-color: #e3e3e3;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+        }
