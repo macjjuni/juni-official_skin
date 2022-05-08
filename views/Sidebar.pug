@@ -1,15 +1,32 @@
 aside#sidebar
     include Sidebar/Profile
     include Sidebar/Category
+    div.side-blank
     include Sidebar/Social
 
     style.
         #sidebar {
             position: fixed;
             top: 0; left: 0;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: flex-start;
             width: 280px; height: 100%;
             padding: calc(60px + 1rem) 1rem 1rem 1rem;
             background-color: #f6f6f6;
-            box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+            box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+            transition: left 0.6s ease;
             user-select: none;
+            overflow: auto;
+            z-index: 9000;
+        }
+        #sidebar::-webkit-scrollbar { display: none; }
+        .side-blank {
+            height: 100%;
+        }
+        @media screen and (max-width: 767px) {
+            #sidebar { left: -300px; } 
+            #sideToggle ~ #sidebar { left: -300px; }
+            #sideToggle:checked ~ #sidebar { left: 0px; }
         }

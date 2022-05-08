@@ -1,8 +1,9 @@
 div.right-menu
     button.theme-toggle
-        i(class="bx bx-md bx-moon")
+        i(class="bx bx-sm bx-moon")
     button.mobile-menu
-        i(class="bx bx-md bx-menu")
+        label(for="sideToggle") 
+            i(class="bx bx-sm bx-menu")
 
     style.
         .right-menu {
@@ -12,6 +13,7 @@ div.right-menu
         }
         .bx-moon, .bx-menu { transition: 0.4s; }
         .theme-toggle:hover .bx-moon { color: #9e3dff; }
+        .mobile-menu { display: none; }
         .theme-toggle, .mobile-menu{
             padding: 0.25rem;
             border: none;
@@ -20,8 +22,20 @@ div.right-menu
             margin-left: 0.5rem;
             transition: 0.4s;
         }
+        .theme-toggle>label>i, .mobile-menu>label>i{
+            padding-top: 2px;
+        }
+        .mobile-menu>label {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%; height: 100%;
+        }
         .theme-toggle:hover, .mobile-menu:hover {
             box-shadow: none;
             background-color: #e3e3e3;
             box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+        }
+        @media screen and (max-width: 767px) {
+            .mobile-menu { display: inline-flex; }
         }

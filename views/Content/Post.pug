@@ -1,0 +1,79 @@
+s_article_rep
+    s_permalink_article_rep
+        section.content
+            div.content-wrap
+                div.post-header
+                    h2.post-title [##_article_rep_title_##]
+                    p.post-info [##_article_rep_category_##] - [##_article_rep_simple_date_##]
+                    s_ad_div
+                        div.post-admin
+                            span [##_s_ad_s1_label_##]
+                            a(href="[##_s_ad_m_link_##]") 수정
+    
+                div.post-content [##_article_rep_desc_##]
+                    s_rp
+                        include CommentWrite
+                        include CommentList
+            div.post-navi
+
+
+    style.
+        .content {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            color: #2c3e50;
+        }
+        .content a {
+            color: #2c3e50;
+        }
+        .content-wrap {
+            max-width: 780px;
+            padding: 0 1rem;
+        }
+        .post-navi {
+            display: block;
+            width: 250px;
+            height: 500px;
+            margin-left: 1rem;
+            border: 1px solid #000;
+        }
+        .post-header { 
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 0 0 1rem 0;
+            margin: 0.5rem 0 1.5rem 0;
+            border-bottom: 1px solid #000;
+        }
+        .post-title {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+            font-size: 1.85rem;
+            font-weight: bold;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+        .post-info {
+            display: block;
+            width: 100%;
+            text-align: right;
+            margin-bottom: 10px;
+        }
+        .post-admin {
+            display: flex;
+            width: 100%;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        .post-admin > a {
+            margin-left: 0.5rem;
+        }
+        @media screen and (max-width: 1300px) {
+            .post-navi { display: none; }
+        }
+        @media screen and (max-width: 1100px) {
+            .content-wrap { padding: 0px; }
+        }

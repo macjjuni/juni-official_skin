@@ -1,8 +1,12 @@
 main.main
-    include Content/Main
+    include Content/Home
+    include Content/Post
     
     style.
         .main {
             padding: 1rem;
             background-color: #fff;
+        }
+        @media screen and (max-width: 767px) {
+            .main { padding: 10px; }
         }

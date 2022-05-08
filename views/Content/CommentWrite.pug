@@ -1,0 +1,101 @@
+div.commend-wrap
+    s_rp_input_form.commentWrite
+        s_rp_member
+        h3
+            i.bx.bx-sm.bx-chat
+            span 댓글
+        p.commend-input
+            textarea(name="[##_rp_input_comment_##]" rows="10" cols="50")
+            s_rp_guest
+                div.writer-wrap
+                    p.secret-wrap
+                        input.checkbox(type="checkbox" id="secret" name="[##_rp_input_is_secret_##]")
+                        label(for="secret")  비밀글
+                    div
+                        p.name-wrap
+                            label(for="name") 닉네임 :
+                            input(type="text" id="name" name="[##_rp_input_name_##]" value="[##_guest_name_##]")
+                        p.pw-wrap
+                            label(for="password") 비밀번호 :
+                            input(type="password" id="password" maxlength="8" name="[##_rp_input_password_##]" value="[##_rp_admin_check_##]")
+        p.write-wrap
+            input(type="submit" value="댓글 달기" onclick="[##_rp_onclick_submit_##]")
+
+    style.
+        .commend-wrap {
+            color: #2c3e50;
+            padding: 2rem 0;
+            margin: 2rem 0;
+            border-top: 1px solid #cccccc;
+        }
+        .commentWrite > h3 {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            margin: 1rem 0;
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+        .bx-chat { margin-right: 0.5rem; }
+        .commend-input > textarea {
+            display: block;
+            color: #777777;
+            width: 100%; height: 80px;
+            padding: 0.6rem;
+            border: 1px solid #cccccc;
+            font-size: 1.05rem;
+            resize: none;
+            outline: none;
+        }
+        .writer-wrap{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0.5rem 0 1.2rem;
+        }
+        .writer-wrap > div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .write-wrap > input {
+            width: 100%; 
+            height: 40px;
+            font-size: 1rem;
+            border: none;
+            color: #fff;
+            background-color: #12c2e9;  /* fallback for old browsers */
+            background: linear-gradient(to left, #f64f59, #c471ed, #12c2e9);
+            background-size: 400% 400%; 
+            animation: gradationAni 7s ease infinite;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+            cursor: pointer;
+        }
+        .pw-wrap { margin-left: 0.75rem; }
+        .pw-wrap > input { 
+            font-family: sans-serif;
+            margin-left: 0.5rem; 
+        }
+        .name-wrap > label, .pw-wrap > label {
+            margin-right: 0.4rem;
+        }
+        .name-wrap > input, .pw-wrap > input, .hp-wrap > input {
+            width: 150px;
+            padding: 0.4rem 0.5rem;
+            color: #777777;
+            font-size: 1.05rem;
+            border: 1px solid #cccccc;
+            outline: none;
+        }
+
+        @keyframes gradationAni {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
