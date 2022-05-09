@@ -4,30 +4,107 @@ div.commentList
             s_rp_rep
                 li(id='[##_rp_rep_id_##]')
                     div(class='[##_rp_rep_class_##]')
-                        span.image [##_rp_rep_logo_##]   
-                        span.name [##_rp_rep_name_##]
-                        span.date  [##_rp_rep_date_##]
+                        div.comment-wrap
+                            div.thumb-wrap
+                                img.comment-thumb(src="[##_rp_rep_logo_##]" alt="comment thumbnail")
+                                span.comment-name [##_rp_rep_name_##]
+                            p.comment-content [##_rp_rep_desc_##]
 
-                        span.control
-                            a.address(href='[##_rp_rep_link_##]')
-                                span 댓글주소
-                        a.modify(href='#', onclick='[##_rp_rep_onclick_delete_##]')
-                            span 수정/삭제
-                        a.write(href='#', onclick='[##_rp_rep_onclick_reply_##]')
-                            span 댓글삭제 
-                        p [##_rp_rep_desc_##]
-
+                        div.control-wrap
+                            span.comment-date [##_rp_rep_date_##]
+                            div.control-btn-wrap
+                                button.commend-modify(href='#', onclick='[##_rp_rep_onclick_delete_##]')
+                                    span 수정/삭제
+                                button.commend-write(href='#', onclick='[##_rp_rep_onclick_reply_##]')
+                                    span 댓글달기
+                        
                     s_rp2_container
                         ul
                             s_rp2_rep
                                 li(id='[##_rp_rep_id_##]')
-                                    div(class='[##_rp_rep_class_##]')
-                                        span.image [##_rp_rep_logo_##]      
-                                        span.name [##_rp_rep_name_##]
-                                        span.date  [##_rp_rep_date_##]
-                                        span.control
-                                            a.address(href='[##_rp_rep_link_##]')
-                                                span 댓글주소   
-                                            a.modify(href='#', onclick='[##_rp_rep_onclick_delete_##]')
-                                                span 수정/삭제    
-                                        p [##_rp_rep_desc_##]
+                                    iv.comment-wrap
+                                        div.thumb-wrap
+                                            img.comment-thumb(src="[##_rp_rep_logo_##]" alt="comment thumbnail")
+                                            span.comment-name [##_rp_rep_name_##]
+                                        p.comment-content [##_rp_rep_desc_##]
+
+                                    div.control-wrap
+                                        span.comment-date [##_rp_rep_date_##]
+                                        div.control-btn-wrap
+                                            button.commend-modify(href='#', onclick='[##_rp_rep_onclick_delete_##]')
+                                                span 수정/삭제
+                                            button.commend-write(href='#', onclick='[##_rp_rep_onclick_reply_##]')
+                                                span 댓글달기
+    style.
+        .rp_general, .rp_general ~ ul>li{
+            padding: 10px;
+            background: #f2f2f2;
+            border-radius: 5px;
+            margin-top: 30px;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+        }
+        .rp_general ~ ul>li {
+            margin-left: 30px;
+            margin-top: 10px !important;
+        }
+        .comment-wrap{ 
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }   
+        .comment-thumb{
+            width: 55px; height: 55px;
+            border-radius: 40px;
+            box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+        }
+        .comment-content{
+            width: 100%;
+            min-height: 80px;
+            margin-left: 10px;
+            padding: 10px;
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+        }
+        .control-wrap{
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin-top: 10px;
+        }
+        .control-btn-wrap{
+            margin-left: 15px;
+        }
+        .thumb-wrap{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: nowrap;
+        }
+        .comment-name{
+            margin-top: 7px;
+            font-size: 0.9rem;
+        }
+        .comment-name>a {
+            white-space: nowrap;
+            max-width: 80px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .comment-date{
+            font-size: 0.8rem;
+            position: relative;
+            top: 2px;
+        }
+        .commend-write {
+            margin-left: 5px;
+        }
+        .commend-modify, .commend-write{
+            padding: 0.3rem 0.6rem;
+            font-size: 0.8rem;
+        }
+        .commend-modify>span, .commend-write>span{
+            top: 1px;
+        }
+            
