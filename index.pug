@@ -51,7 +51,7 @@ block macjjuni
       opacity: 0;
       transition: opacity 0.8s ease, padding 0.6s ease;
     }
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 900px) {
       #macjjuni { 
         padding: 60px 0 0 0;
       }
@@ -75,7 +75,9 @@ block macjjuni
     window.onload = () => {
       const load = document.querySelector('.load-bg');
       load.style.opacity = 0;
-      setTimeout(()=> { load.style.zIndex = -9999; }, 400)
+      setTimeout(()=> { 
+        load.style.display = 'none';
+      }, 400)
       document.querySelector('#macjjuni').style.opacity = 1;
       document.querySelector('.link_tit').style.display = 'none'; // 카테고리
     }
