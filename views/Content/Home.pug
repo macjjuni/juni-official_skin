@@ -8,33 +8,61 @@ s_list
                     a.post-link(href="[##_list_rep_link_##]")
                         s_list_rep_thumbnail
                             img.post-thumb(src="[##_list_rep_thumbnail_##]" alt="thumb-nail")
-                        h3 [##_list_rep_title_##]
-                        h4 [##_list_rep_regdate_##]
+                        h2.post-title [##_list_rep_title_##]
+                        p.post-summary [##_list_rep_summary_##]
+                        p.post-date-wrap
+                            span.post-dateTxt [##_list_rep_regdate_##]
+                            span.post-commentCnt [##_list_rep_rp_cnt_##]개의 댓글
+                        
     style.
+        .post-list-wrap{
+            max-width: 768px;
+            margin: 0 auto;
+        }
         .article-header{
             display: flex;
             justify-content: flex-end;
             align-items: center;
             padding: 10px 0;
         }
-        .article-head-txt {
-            font-size: 1.25rem;
-        }
+        .article-head-txt { font-size: 1.25rem; }
         .article-wrap{
             display: flex;
             justify-content: space-around;
             flex-direction: column;
             align-items: center;
             align-content: center;
+            padding: 20px 0;
         }
-        .post-item{
-            max-width: 768px;
+        .post-item{ 
+            max-width: 768px; 
+            width: 100%;
+            margin-bottom: 100px;
         }
         .post-thumb {
             display: inline-block;
             width: 100%;
-            height: 400px;
+            height: 440px;
         }
+        .post-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            padding: 20px 0 12px 0;
+            margin: 0 !important;
+        }
+        .post-summary {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .post-date-wrap {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding-top: 30px;
+            font-size: 0.95rem;
+        }
+        .post-commentCnt { margin-left: 0.5rem; }
     
 //- section.post-list-wrap       
 //-     s_cover_group
