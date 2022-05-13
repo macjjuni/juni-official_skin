@@ -11,6 +11,7 @@ div.profile-wrap
         li
             span.cntTxt [##_count_total_##] 
             span.cntTitle Total
+include JuniVoxel
 div.profile-msg
     span 👨🏻‍💻 FE Developer
     span 🪧 꾸준함이 생명
@@ -18,6 +19,8 @@ div.profile-msg
 
     style.
         .profile-wrap {
+            z-index: 9000;
+            width: 248px;
             display: flex;
             justify-content: flex-start;
             align-items: flex-start;
@@ -34,11 +37,12 @@ div.profile-msg
             bottom: 8px; right: 8px;
             width: 20px; height: 20px;
             font-size: 2rem;
+            z-index: 9000;
         }
         .profile-img{
-            width: 80px;
-            height: 80px;
+            width: 80px; height: 80px;
             border-radius: 40px;
+            z-index: 9000;
             box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
         }
         .todayCnt {
@@ -74,8 +78,11 @@ div.profile-msg
             justify-content: flex-start;
             align-items: flex-start;
             font-size: 1.0rem;
-            padding: 0 0.4rem;
-            margin-top: 1.5rem;
+            color: #fff;
+            padding: 8px;
+            border-radius: 5px;
+            background: rgba(0,0,0,0.38);
+            z-index: 1;
         }
         .profile-msg > span {
             margin: 0.3rem 0;
