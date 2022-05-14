@@ -11,11 +11,11 @@ s_article_rep
                             a(href="[##_s_ad_m_link_##]") 수정
     
                 div.post-content [##_article_rep_desc_##]
+                div.post-commend
                     s_rp
                         include CommentWrite
                         include CommentList
             div.post-navi
-
 
     style.
         .content {
@@ -30,7 +30,10 @@ s_article_rep
         .content-wrap {
             max-width: 780px;
             padding: 0 1rem;
+            width: 100%;
         }
+        .content ~ .paging { display: none; }
+
         .post-navi {
             display: block;
             width: 250px;
@@ -49,12 +52,13 @@ s_article_rep
         .post-title {
             display: block;
             width: 100%;
-            margin-bottom: 10px;
+            margin: 10px 0;
             font-size: 1.85rem;
             font-weight: bold;
             white-space: nowrap;
             text-overflow: ellipsis;
-            overflow: hidden;
+            overflow-x: scroll;   
+            -ms-overflow-style: none;
         }
         .post-info {
             display: block;
@@ -71,15 +75,33 @@ s_article_rep
         .post-admin > a {
             margin-left: 0.5rem;
         }
+        .post-content p {
+            line-height: 1.25;
+        }
+        .tt_article_useless_p_margin {
+            position: relative;
+            min-height: 350px;
+            padding-bottom: 70px;
+        }
         .container_postbtn { 
-            padding: 40px 0 0 0 !important;
+            position: absolute !important;
+            bottom: 0; left: 0;
+            width: 100%;
+            padding: 0 !important;
         }
         .postbtn_like{ border: none !important; }
         .layer_post{ padding: 0 !important; }
         .postbtn_like button { 
             padding: 0 9px !important; 
             margin-right: 5px !important;
-            box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px !important;
+            border-radius: 3px;
+            box-shadow: none;
+            transition: box-shadow 0.2s ease;
+        }
+        .postbtn_like button:hover { box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; }
+        .layer_post .btn_mark {
+            box-shadow: none;   
+            border-radius: 0;
         }
         .container_postbtn .btn_menu_toolbar {
             border: none !important;
@@ -88,6 +110,12 @@ s_article_rep
             border-radius: 5px !important;
         }
         .container_postbtn .postbtn_like{ padding: 0 !important; }
+        .post-commend {
+            color: #2c3e50;
+            padding: 2rem 0 1.5rem 0;
+            margin: 2rem 0 0 0;
+            border-top: 1px solid #cccccc;
+        }
         @media screen and (max-width: 1300px) {
             .post-navi { display: none; }
         }
@@ -97,4 +125,11 @@ s_article_rep
                 padding: 0px;
             }
         }
+        @media screen and (max-width: 720px) {
+            .post-title {
+                height: 43px;
+                text-overflow: clip;
+            }
+        }
+        
         

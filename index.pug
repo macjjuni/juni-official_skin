@@ -70,15 +70,24 @@ block macjjuni
       include views/sidebar
       include views/Content
       include views/Chart/TradingView
-      
+      include views/Footer/Footer
+
   script.
     window.onload = () => {
-      const load = document.querySelector('.load-bg');
+      const load = document.querySelector('.load-bg'); // 로딩 스피너
       load.style.opacity = 0;
       setTimeout(()=> { 
         load.style.display = 'none';
       }, 400)
       document.querySelector('#macjjuni').style.opacity = 1;
-      document.querySelector('.link_tit').style.display = 'none'; // 카테고리
+      document.querySelector('.link_tit').style.display = 'none'; // 카테고리 텍스트 제거
+
+      const articleWrap = document.querySelector('.article-wrap');
+      if(articleWrap.children.length % 2 !== 0) {
+        const newArti = document.createElement('article');
+        newArti.classList.add('post-item');
+        newArti.style.margin = "0";
+        articleWrap.appendChild(newArti);
+      }
     }
     

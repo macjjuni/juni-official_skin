@@ -1,0 +1,29 @@
+s_paging
+    section.paging
+        a.prev([##_prev_page_##] class="[##_no_more_prev_##]") ◀
+        span.numbox
+            s_paging_rep
+                a([##_paging_rep_link_##] class="num") [##_paging_rep_link_num_##]
+        a.next([##_next_page_##] class="[##_no_more_next_##]") ▶
+
+    style.
+        .paging {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            margin: 0 0 2rem 0;
+        }
+        .paging > a, .paging > .numbox .num {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 25px; height: 25px;
+            margin: 0 3px;
+            background: #eee;
+            border-radius: 3px;
+        }
+        .num > .selected { 
+            text-decoration: underline; 
+            text-underline-offset: 2px;
+        }

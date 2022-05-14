@@ -1,38 +1,31 @@
-div.commend-wrap
-    s_rp_input_form.commentWrite
-        s_rp_member
-        h3
-            i.bx.bx-sm.bx-chat
-            span 댓글
-        p.commend-input
-            textarea(name="[##_rp_input_comment_##]" rows="10" cols="50")
-            s_rp_guest
-                div.writer-wrap
-                    p.secret-wrap
-                        input.checkbox(type="checkbox" id="secret" name="[##_rp_input_is_secret_##]")
-                        label(for="secret")  비밀글
-                    div
-                        p.name-wrap
-                            label(for="name") 닉네임 :
-                            input(type="text" id="name" name="[##_rp_input_name_##]" value="[##_guest_name_##]")
-                        p.pw-wrap
-                            label(for="password") 비밀번호 :
-                            input(type="password" id="password" maxlength="8" name="[##_rp_input_password_##]" value="[##_rp_admin_check_##]")
-        p.write-wrap
-            input(type="submit" value="댓글 달기" onclick="[##_rp_onclick_submit_##]")
+s_rp_input_form.commentWrite
+    s_rp_member
+    h3
+        i.bx.bx-sm.bx-chat
+        span 댓글
+    p.commend-input
+        textarea(name="[##_rp_input_comment_##]" rows="10" cols="50")
+        s_rp_guest
+            div.writer-wrap
+                p.secret-wrap
+                    input.checkbox(type="checkbox" id="secret" name="[##_rp_input_is_secret_##]")
+                    label(for="secret")  비밀글
+                div
+                    p.name-wrap
+                        label(for="name") 닉네임 :
+                        input(type="text" id="name" name="[##_rp_input_name_##]" value="[##_guest_name_##]" placeholder="닉네임")
+                    p.pw-wrap
+                        label(for="password") 비밀번호 :
+                        input(type="password" id="password" maxlength="8" name="[##_rp_input_password_##]" value="[##_rp_admin_check_##]" placeholder="비밀번호")
+    p.write-wrap
+        input(type="submit" value="댓글 달기" onclick="[##_rp_onclick_submit_##]")
 
     style.
-        .commend-wrap {
-            color: #2c3e50;
-            padding: 2rem 0 1.5rem 0;
-            margin: 2rem 0 0 0;
-            border-top: 1px solid #cccccc;
-        }
         .commentWrite > h3 {
             display: flex;
             justify-content: flex-start;
             align-items: center;
-            margin: 1rem 0;
+            margin: 0 0 1rem 0;
             font-size: 1.25rem;
             font-weight: bold;
         }
@@ -86,6 +79,14 @@ div.commend-wrap
             font-size: 1.05rem;
             border: 1px solid #cccccc;
             outline: none;
+        }
+
+        @media screen and (max-width: 720px) {
+            .name-wrap>input, .pw-wrap>input, .hp-wrap>input { width: 100px; }
+            .name-wrap>label, .pw-wrap>label { display: none;  }
+            .pw-wrap { margin-left: 0; }
+            .commend-wrap { padding: 2rem 0 0rem 0; }
+            .writer-wrap { margin: 0.5rem 0; }
         }
 
         @keyframes gradationAni {

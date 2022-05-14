@@ -18,7 +18,11 @@ div.today-wrap
                 chart.style.left = "";
                 btnToggle.children[0].classList.remove('bitcoin')
             }
-            
+        })
+        const closeBtn = document.querySelector('#closeChart');
+        closeBtn.addEventListener('click', (e)=> {
+            const chart = document.querySelector('.chart-wrap');
+            chart.style.left = "";
         })
 
     style.

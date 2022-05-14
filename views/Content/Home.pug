@@ -1,54 +1,75 @@
 s_list
     section.post-list-wrap
         section.article-header
+            h2.blank
             h2.article-head-txt [##_list_conform_##] ([##_list_count_##])
         section.article-wrap
             s_list_rep
                 article.post-item
                     a.post-link(href="[##_list_rep_link_##]")
-                        s_list_rep_thumbnail
-                            img.post-thumb(src="[##_list_rep_thumbnail_##]" alt="thumb-nail")
-                        h2.post-title [##_list_rep_title_##]
+                        div.post-thumb-wrap
+                            s_list_rep_thumbnail
+                                img.post-thumb(src="[##_list_rep_thumbnail_##]" alt="thumb-nail")
+                        h2.post-article-title [##_list_rep_title_##]
                         p.post-summary [##_list_rep_summary_##]
                         p.post-date-wrap
                             span.post-dateTxt [##_list_rep_regdate_##]
                             span.post-commentCnt [##_list_rep_rp_cnt_##]개의 댓글
-                        
+
     style.
         .post-list-wrap{
-            max-width: 768px;
+            max-width: 1400px;
             margin: 0 auto;
         }
         .article-header{
             display: flex;
-            justify-content: flex-end;
+            flex-wrap: nowrap;
+            flex-direction: row;
+            justify-content: space-around;
             align-items: center;
             padding: 10px 0;
         }
-        .article-head-txt { font-size: 1.25rem; }
+        .article-header > h2{
+            max-width: 544px; 
+            width: 100%; 
+        }
+        .article-head-txt { 
+            font-size: 1.25rem; 
+            text-align: right;
+        }
         .article-wrap{
             display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
             justify-content: space-around;
-            flex-direction: column;
             align-items: center;
             align-content: center;
-            padding: 20px 0;
+            padding: 20px 0;            
         }
         .post-item{ 
-            max-width: 768px; 
+            max-width: 544px; 
             width: 100%;
-            margin-bottom: 100px;
+            margin-bottom: 55px;
+        }
+        .post-thumb-wrap { 
+            width: 100%; 
+            height: 327px; 
+            border-radius: 2px;
+            box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+            overflow: hidden;
         }
         .post-thumb {
             display: inline-block;
-            width: 100%;
-            height: 440px;
+            width: 100%; height: 100%;
         }
-        .post-title {
-            font-size: 1.5rem;
+        .post-article-title {
+            font-size: 1.38rem;
             font-weight: bold;
             padding: 20px 0 12px 0;
             margin: 0 !important;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
         }
         .post-summary {
             white-space: nowrap;
@@ -63,23 +84,42 @@ s_list
             font-size: 0.95rem;
         }
         .post-commentCnt { margin-left: 0.5rem; }
-    
-//- section.post-list-wrap       
-//-     s_cover_group
-//-         s_cover_rep
-//-             s_cover
-//-                 div.article-header
-//-                     h2.article-head-txt [##_cover_title_##]
-//-                 div.article-wrap
-//-                     s_cover_item
-//-                         article.post-item
-//-                             a.post-link(href="[##_cover_item_url_##]")
-//-                                 s_cover_item_thumbnail
-//-                                     img.post-thumb(src="[##_cover_item_thumbnail_##]" alt="thumb-nail")
-//-                                 h3 [##_cover_item_title_##]
-//-                                 s_cover_item_article_info
-//-                                     div.post-info
-//-                                         p.post-prew [##_cover_item_summary_##]
-//-                                         span.post-cate [##_cover_item_category_##]
-//-                                         span.post-date [##_cover_item_date_##]
-    
+        @media screen and (max-width: 1400px) {
+            .article-wrap {
+                justify-content: center;
+                flex-direction: column;
+            }
+            .article-header{
+                max-width: 767px;
+                margin: 0 auto;
+            }
+            .post-item { max-width: 767px; }
+            .post-thumb-wrap { height: 460px; }
+            .post-article-title { font-size: 1.7rem; }
+        }
+        @media screen and (max-width: 1080px) {
+            .post-thumb-wrap {
+                height: calc( (100vw - (280px + 2rem)) /5 * 3 );
+            }
+        }
+        @media screen and (max-width: 900px) {
+            .post-thumb-wrap {
+                height: 460px;
+            }
+        }
+        @media screen and (max-width: 799px) {
+            .article-wrap {
+                padding: 10px 0;
+            }
+            .post-thumb-wrap { height: calc((100vw - 2rem) / 5 * 3); }
+            .post-article-title { 
+                padding: 20px 0 8px 0;
+                font-size: 1.25rem; 
+            }
+            .post-date-wrap {
+                padding-top: 20px;
+            }
+            .post-item{ 
+                margin-bottom: 40px;
+            }
+        }
