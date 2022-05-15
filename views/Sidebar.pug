@@ -3,6 +3,7 @@ aside#sidebar
     include Sidebar/Category
     div.side-blank
     include Sidebar/Social
+div.sidebar-bg
 
     style.
         #sidebar {
@@ -21,13 +22,29 @@ aside#sidebar
             overflow: auto;
             z-index: 9000;
         }
-        #sidebar::-webkit-scrollbar { display: none; }
-        .side-blank {
-            height: 100%;
+        .sidebar-bg {
+            position: fixed;
+            top: 0; left: 100vw;
+            width: 100vw; height: 100vh;
+            background-color: rgba(0,0,0, 0.3);
+            opacity: 0;
+            transition: opacity 0.2s ease;
+            z-index: 8000;
         }
+        #sidebar::-webkit-scrollbar { display: none; }
+        .side-blank { height: 100%; }
+
         @media screen and (max-width: 900px) {
             #sidebar { left: -300px; } 
             #sideToggle ~ #sidebar { left: -300px; }
             #sideToggle:checked ~ #sidebar { left: 0px; }
+            #sideToggle:checked ~ .sidebar-bg { left: 0; opacity: 1; }
         }
-//- box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+    //- box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+
+    script.
+        const sidebarBg = document.querySelector('.sidebar-bg');
+        sidebarBg.addEventListener('click', () => {
+            const chkbox = document.querySelector('#sideToggle');
+            chkbox.checked = false;
+        })

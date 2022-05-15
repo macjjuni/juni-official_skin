@@ -11,18 +11,19 @@ div.today-wrap
         btnToggle.addEventListener('click', (e)=> {
             e.preventDefault();
             const chart = document.querySelector('.chart-wrap');
-            if (chart.style.left === '') {
-                chart.style.left = "calc(280px + 1rem)";
+            if (!chart.classList.contains('chart-show')) {
+                chart.classList.add('chart-show');
                 btnToggle.children[0].classList.add('bitcoin')
             } else {
                 chart.style.left = "";
+                chart.classList.remove('chart-show');
                 btnToggle.children[0].classList.remove('bitcoin')
             }
         })
         const closeBtn = document.querySelector('#closeChart');
         closeBtn.addEventListener('click', (e)=> {
             const chart = document.querySelector('.chart-wrap');
-            chart.style.left = "";
+            chart.classList.remove('chart-show')
         })
 
     style.

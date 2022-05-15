@@ -1,7 +1,7 @@
 div.right-menu
     button.theme-toggle
         i(class="bx bx-sm bx-moon")
-    button.mobile-menu
+    a.mobile-menu
         label(for="sideToggle") 
             i(class="bx bx-sm bx-menu")
 
@@ -13,7 +13,13 @@ div.right-menu
         }
         .bx-moon, .bx-menu { transition: 0.4s; }
         .theme-toggle:hover .bx-moon { color: #9e3dff; }
-        .mobile-menu { display: none; }
+        .mobile-menu { 
+            display: none; 
+            cursor: pointer;
+        }
+        .mobile-menu > label, .mobile-menu > label > i {
+            cursor: pointer;
+        }
         .theme-toggle, .mobile-menu{
             padding: 0.25rem;
             border: none;
