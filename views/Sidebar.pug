@@ -1,4 +1,4 @@
-aside#sidebar
+aside.sidebar
     include Sidebar/Profile
     include Sidebar/Category
     div.side-blank
@@ -6,7 +6,7 @@ aside#sidebar
 div.sidebar-bg
 
     style.
-        #sidebar {
+        .sidebar {
             position: fixed;
             top: 0; left: 0;
             display: flex;
@@ -17,7 +17,7 @@ div.sidebar-bg
             padding: calc(60px + 1rem) 1rem 1rem 1rem;
             background-color: #f6f6f6;
             box-shadow: rgb(0 0 0 / 12%) 0px 1px 3px, rgb(0 0 0 / 24%) 0px 1px 2px;
-            transition: left 0.4s ease;
+            transition: left 0.4s ease, background-color 0.33s ease;
             user-select: none;
             overflow: auto;
             z-index: 9000;
@@ -31,13 +31,13 @@ div.sidebar-bg
             transition: opacity 0.2s ease;
             z-index: 8000;
         }
-        #sidebar::-webkit-scrollbar { display: none; }
+        .sidebar::-webkit-scrollbar { display: none; }
         .side-blank { height: 100%; }
 
         @media screen and (max-width: 900px) {
-            #sidebar { left: -300px; } 
-            #sideToggle ~ #sidebar { left: -300px; }
-            #sideToggle:checked ~ #sidebar { left: 0px; }
+            .sidebar { left: -300px; } 
+            #sideToggle ~ .sidebar { left: -300px; }
+            #sideToggle:checked ~ .sidebar { left: 0px; }
             #sideToggle:checked ~ .sidebar-bg { left: 0; opacity: 1; }
         }
     //- box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
