@@ -6,6 +6,12 @@ style.
   header > h1 {
     font-size: 1.4rem;
     font-family: 'Single Day', cursive !important;
+    letter-spacing: 3px;
+    text-shadow: red 0 0, cyan 0 0;
+    transition: text-shadow 200ms;
+  }
+  header > h1:hover {
+    text-shadow: red -2px 0, cyan 2px 0;
   }
   .dark header>.logo>a { color: #fff; }
   

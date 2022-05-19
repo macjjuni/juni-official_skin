@@ -51,7 +51,7 @@ block macjjuni
 
     .dark * { color: #b3b8bd; }
     #macjjuni, .header { transition: 0.33s ease; }
-    .dark #macjjuni { background-color: #222427; }
+    .dark { background-color: #222427; }
     .dark .header, .dark .sidebar { background-color: #191a1c; }
 
     @media screen and (max-width: 900px) {
@@ -73,7 +73,7 @@ block macjjuni
       include views/Chart/TradingView
       include views/Footer/Footer
 
-  script.
+  script(scoped).
     window.onload = () => {
       const load = document.querySelector('.load-bg'); // 로딩 스피너
       load.style.opacity = 0;

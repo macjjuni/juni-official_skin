@@ -5,7 +5,7 @@ div.right-menu
         label(for="sideToggle") 
             i(class="bx bx-sm bx-menu")
 
-    script.
+    script(scoped).
         const saveTheme = localStorage.getItem('theme');
         if(saveTheme === null) {
             const theme = window.matchMedia("(prefers-color-scheme: dark)").matches;
