@@ -46,5 +46,6 @@ div.sidebar-bg
         const sidebarBg = document.querySelector('.sidebar-bg');
         sidebarBg.addEventListener('click', () => {
             const chkbox = document.querySelector('#sideToggle');
+            document.querySelector('body').style.overflow = 'auto';
             chkbox.checked = false;
         })

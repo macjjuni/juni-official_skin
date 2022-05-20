@@ -34,6 +34,13 @@ div.right-menu
             }
         })
 
+        const menuBtn = document.querySelector('.mobile-menu');
+        menuBtn.addEventListener('click', ()=> {
+            const chk = document.querySelector('#sideToggle');
+            if(chk.checked === false) document.querySelector('body').style.overflow = 'hidden'
+            else document.querySelector('body').style.overflow = 'auto'
+        })
+
     style.
         .right-menu {
             display: flex;
@@ -62,7 +69,8 @@ div.right-menu
         }
         .theme-toggle, .mobile-menu{
             padding: 0.25rem;
-            border: none;
+            border: none !important;
+            background-color: #191a1c;
             border-radius: 4px;
             background: none;
             box-shadow: none;
@@ -71,6 +79,12 @@ div.right-menu
         }
         .theme-toggle:hover, .mobile-menu:hover{
             box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+        }
+        .dark .theme-toggle:hover, .dark .mobile-menu:hover{
+            background-color: #2b2b2b;
+        }
+        .dark .mobile-menu:hover label>i {
+            color: #fff;
         }
         .theme-toggle>label>i, .mobile-menu>label>i{
             padding-top: 2px;

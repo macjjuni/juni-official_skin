@@ -43,6 +43,10 @@ div.commentList
             margin-top: 30px;
             box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
         }
+        .dark .rp_general, .dark .rp_general ~ ul>li{
+            background-color: #2f3034;
+        }
+        
         .rp_general ~ ul>li {
             margin-left: 30px;
             margin-top: 8px !important;
@@ -66,6 +70,9 @@ div.commentList
             border-radius: 5px;
             box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
         }
+        .dark .comment-content {
+            background: #3f3f45;
+        }
         .control-wrap{
             display: flex;
             justify-content: flex-end;
@@ -76,11 +83,21 @@ div.commentList
             margin-left: 15px;
         }
         .thumb-wrap{
+            position: relative;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             flex-wrap: nowrap;
+        }
+        .dark .thumb-wrap::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 50%;
+            transform: translate(-50%, 0);
+            width: 55px; height: 55px;
+            border-radius: 23px;
+            background-color: rgba(0,0,0,0.4);
         }
         .comment-name{
             margin-top: 7px;
@@ -103,6 +120,10 @@ div.commentList
         .commend-modify, .commend-write{
             padding: 0.3rem 0.6rem;
             font-size: 0.8rem;
+        }
+        .dark .commend-modify, .dark .commend-write{
+            border: 1px solid #545454;
+            background-color: #4a4a4a;
         }
         .commend-modify>span, .commend-write>span{
             top: 1px;

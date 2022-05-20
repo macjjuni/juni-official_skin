@@ -36,11 +36,13 @@ block macjjuni
       cursor: pointer;
       transition: 0.1s;
     }
-
     button:hover { box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px; }
     button>span {
       position: relative;
       top: 2px;
+    }
+    body {
+      transition: background-color 0.33s ease ;
     }
     #macjjuni { 
       position: relative;
@@ -48,16 +50,14 @@ block macjjuni
       opacity: 0;
       transition: opacity 0.8s ease, padding 0.6s ease;
     }
-
     .dark * { color: #b3b8bd; }
     #macjjuni, .header { transition: 0.33s ease; }
+    
     .dark { background-color: #222427; }
     .dark .header, .dark .sidebar { background-color: #191a1c; }
-
     @media screen and (max-width: 900px) {
       #macjjuni { padding: 60px 0 0 0; }
     }
-    
     #sideToggle {
       position: fixed;
       left: -100%;
@@ -90,5 +90,10 @@ block macjjuni
         newArti.style.margin = "0";
         articleWrap.appendChild(newArti);
       }
+
+      const options = { duration: 3.8 };
+      const demo = new CountUp('.cntTitle', 200, options);
+      if (!demo.error) { demo.start();} 
+      else { console.error(demo.error); }
     }
     
