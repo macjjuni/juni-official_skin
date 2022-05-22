@@ -31,12 +31,12 @@ block macjjuni
       border: 1px solid #eee;
       color: #292929;
       background-color: #fff;
-      border-radius: 5px;
-      box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0,  0, 0.05) 0px 1px 1px 0px;
+      border-radius: 2px;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
       cursor: pointer;
-      transition: 0.1s;
+      transition: 0.25s;
     }
-    button:hover { box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px; }
+    button:hover { box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0,  0, 0.05) 0px 1px 1px 0px; }
     button>span {
       position: relative;
       top: 2px;
@@ -46,9 +46,12 @@ block macjjuni
     }
     #macjjuni { 
       position: relative;
-      padding: 60px 0 0 280px;
+      padding: 55px 0 0 280px;
       opacity: 0;
       transition: opacity 0.8s ease, padding 0.6s ease;
+    }
+    .load-done #macjjuni {
+      opacity: 1;
     }
     .dark * { color: #b3b8bd; }
     #macjjuni, .header { transition: 0.33s ease; }
@@ -56,11 +59,29 @@ block macjjuni
     .dark { background-color: #222427; }
     .dark .header, .dark .sidebar { background-color: #191a1c; }
     @media screen and (max-width: 900px) {
-      #macjjuni { padding: 60px 0 0 0; }
+      #macjjuni { padding: 55px 0 0 0; }
     }
     #sideToggle {
       position: fixed;
       left: -100%;
+    }
+    .btn_tool{
+      opacity: 0 !important;
+      transition: opacity 0.4 ease;
+    }
+    .load-done .btn_tool { opacity: 1 !important; }
+    .menu_toolbar { 
+      top: 12px !important; right: 60px !important;
+      height: auto;
+    }
+    .btn_menu_toolbar {
+      background: #4776E6;  /* fallback for old browsers */
+      background: -webkit-linear-gradient(to right, #8E54E9, #4776E6);  /* Chrome 10-25, Safari 5.1-6 */
+      background: linear-gradient(to right, #8E54E9, #4776E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    }
+    .txt_tool_id, .txt_state {
+      color: #fff !important;
+      font-weight: bold !important;
     }
 
   include views/Spinner
@@ -74,14 +95,15 @@ block macjjuni
       include views/Chart/TradingView
 
   script(scoped).
+    AOS.init();
     window.onload = () => {
       const load = document.querySelector('.load-bg'); // 로딩 스피너
       load.style.opacity = 0;
       setTimeout(()=> { 
         load.style.display = 'none';
       }, 400)
-      document.querySelector('#macjjuni').style.opacity = 1;
       document.querySelector('.link_tit').style.display = 'none'; // 카테고리 텍스트 제거
+      document.querySelector('body').classList.add('load-done')
 
       const articleWrap = document.querySelector('.article-wrap');
       if(articleWrap && articleWrap.children.length % 2 !== 0) {
@@ -90,10 +112,13 @@ block macjjuni
         newArti.style.margin = "0";
         articleWrap.appendChild(newArti);
       }
+      // 0개 댓글 표시
+      const postCnt = document.querySelectorAll('.post-commentCntt')
+      if(postCnt !== null) {
+        postCnt.forEach(p => {
+          if(p.innerText === '') p.innerText = '(0)';
+        })
+      }
 
-      const options = { duration: 3.8 };
-      const demo = new CountUp('.cntTitle', 200, options);
-      if (!demo.error) { demo.start();} 
-      else { console.error(demo.error); }
     }
     

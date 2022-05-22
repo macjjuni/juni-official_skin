@@ -5,7 +5,7 @@ s_list
             h2.article-head-txt [##_list_conform_##] ([##_list_count_##])
         section.article-wrap
             s_list_rep
-                article.post-item
+                article.post-item(data-aos="fade-up" data-aos-delay="100" data-aos-easing="ease" data-aos-duration="500")
                     a.post-link(href="[##_list_rep_link_##]")
                         div.post-thumb-wrap
                             s_list_rep_thumbnail
@@ -14,7 +14,9 @@ s_list
                         p.post-summary [##_list_rep_summary_##]
                         p.post-date-wrap
                             span.post-dateTxt [##_list_rep_regdate_##]
-                            span.post-commentCnt [##_list_rep_rp_cnt_##]개의 댓글
+                            span.post-commentCnt
+                                span.post-commentCntt [##_list_rep_rp_cnt_##]
+                                span 개의 댓글
 
     style.
         .post-list-wrap{
@@ -28,6 +30,7 @@ s_list
             justify-content: space-around;
             align-items: center;
             padding: 10px 0;
+            margin-top: 1rem;
         }
         .article-header > h2{
             max-width: 544px; 
@@ -91,7 +94,7 @@ s_list
             }
             .article-header{
                 max-width: 767px;
-                margin: 0 auto;
+                margin: 1rem auto 0 auto;
             }
             .post-item { max-width: 767px; }
             .post-thumb-wrap { height: 460px; }
@@ -100,6 +103,9 @@ s_list
         @media screen and (max-width: 1080px) {
             .post-thumb-wrap {
                 height: calc( (100vw - (280px + 2rem)) /5 * 3 );
+            }
+            .post-list-wrap {
+                padding: 0 10px;
             }
         }
         @media screen and (max-width: 900px) {
