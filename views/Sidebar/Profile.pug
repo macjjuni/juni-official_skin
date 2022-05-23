@@ -87,7 +87,12 @@ div.profile-msg
             padding: 10px 8px;
             border-radius: 5px;
             background: rgba(0,0,0,0.38);
+            box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
+            transition: 0.3s ease;
             z-index: 1;
+        }
+        .dark .profile-msg {
+            background: rgba(255, 255, 255, 0.15);
         }
         .profile-msg > span {
             width: 100%;
@@ -95,4 +100,8 @@ div.profile-msg
             font-weight: bold;
             color: #fff;
             text-align: center;
+            transition: 0.15s ease;
         }
+        .juni-voxel-wrap:hover ~ .profile-msg > span {
+            text-shadow: red -2px 0, cyan 2px 0;
+        }    
