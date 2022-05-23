@@ -37,6 +37,7 @@ block macjjuni
       transition: 0.25s;
     }
     button:hover { box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0,  0, 0.05) 0px 1px 1px 0px; }
+    .dark button:hover { box-shadow: rgb(50 50 105 / 15%) 0px 2px 5px 0px, rgb(120 120 120) 0px 1px 1px 0px; }
     button>span {
       position: relative;
       top: 2px;
@@ -56,8 +57,8 @@ block macjjuni
     .dark * { color: #b3b8bd; }
     #macjjuni, .header { transition: 0.33s ease; }
     
-    .dark { background-color: #222427; }
-    .dark .header, .dark .sidebar { background-color: #191a1c; }
+    .dark { background-color: #2b2e35; }
+    .dark .header, .dark .sidebar { background-color: #1b1d23; }
     @media screen and (max-width: 900px) {
       #macjjuni { padding: 55px 0 0 0; }
     }
@@ -99,6 +100,7 @@ block macjjuni
     window.onload = () => {
       const load = document.querySelector('.load-bg'); // 로딩 스피너
       load.style.opacity = 0;
+
       setTimeout(()=> { 
         load.style.display = 'none';
       }, 400)

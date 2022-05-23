@@ -60,7 +60,7 @@ s_article_rep
         const postBg = document.querySelector('.post-thumb-img')
         if(postBg !== null) {
             window.addEventListener('scroll', ()=> {
-                postBg.style.transform = 'translateY(' + -(window.scrollY*0.13) + 'px)';
+                postBg.style.transform = 'translateY(' + -(window.scrollY*0.15) + 'px)';
                 console.log(postBg.style)
             })
         }
@@ -180,22 +180,24 @@ s_article_rep
         }
         .post-author { 
             padding: 8px 10px;
-            color: #505050;
+            color: #e5e5e5;
             background: #ececec;
-            border-radius: 7px;
+            border-radius: 6px;
             margin-left: 15px;
             font-size: 14px;
+            box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
             transition: color 0.33s ease, background-color 0.33s ease;
         }
         .dark .post-author {
             color: #bcbcbc;
-            background: #515151;
+            background: #50525d;
         }
         .post-content p {
-            line-height: 1.25;
+            line-height: 1.3;
         }
         .post-content h2, .post-content h3, .post-content h4 {
             padding: 0.5rem 0 !important;
+            line-height: 1.3;
         }
         .tt_article_useless_p_margin {
             position: relative;
