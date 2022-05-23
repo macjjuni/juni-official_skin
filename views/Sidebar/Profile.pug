@@ -3,13 +3,13 @@ div.profile-wrap
         img.profile-img(src="[##_image_##]" alt="blog_profile")
     ul.todayCnt
         li
-            span.cntTxt [##_count_today_##] 
+            span(class="cntTxt" id="todayCnt") [##_count_today_##] 
             span.cntTitle Today
         li
-            span.cntTxt [##_count_yesterday_##] 
+            span(class="cntTxt" id="ydayCnt") [##_count_yesterday_##] 
             span.cntTitle Y-day
         li
-            span.cntTxt [##_count_total_##] 
+            span(class="cntTxt" id="totalCnt") [##_count_total_##] 
             span.cntTitle Total
 include JuniVoxel
 div.profile-msg
@@ -69,7 +69,7 @@ div.profile-msg
             align-items: center;
         }
         .todayCnt>li>.cntTxt{
-            margin-bottom: 0.5rem;
+            margin-bottom: 10px;
             font-weight: bold;
         }
         .todayCnt>li>.cntTitle{
