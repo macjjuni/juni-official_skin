@@ -5,15 +5,16 @@ s_list
             h2.article-head-txt [##_list_conform_##] ([##_list_count_##])
         section.article-wrap
             s_list_rep
-                article.post-item(data-aos="fade-up" data-aos-delay="100" data-aos-easing="ease" data-aos-duration="500")
+                article.post-item
                     i(class="bx bxs-cat bx-lg")
                     a.post-link(href="[##_list_rep_link_##]")
                         div.post-thumb-wrap 
                             s_list_rep_thumbnail
                                 img.post-thumb(src="[##_list_rep_thumbnail_##]" alt="thumb-nail")
-                            span.post-date [##_list_rep_regdate_##] - [##_list_rep_rp_cnt_##]
-                        h2.post-article-title [##_list_rep_title_##]
-                        p.post-summary [##_list_rep_summary_##]
+                        div.post-bottom-wrap
+                            h2.post-article-title [##_list_rep_title_##]
+                            p.post-summary [##_list_rep_summary_##]
+                            p.post-date [##_list_rep_regdate_##] - [##_list_rep_rp_cnt_##]
 
 
     style.
@@ -56,7 +57,7 @@ s_list
         }
         .post-thumb-wrap { 
             width: 100%; height: 327px;
-            border-radius: 10px;
+            border-radius: 3px;
             box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
             overflow: hidden;
         }
@@ -64,10 +65,11 @@ s_list
             display: inline-block;
             width: 100%; height: 100%;
         }
+
         .post-article-title {
             font-size: 1.38rem;
             font-weight: bold;
-            margin: 30px 0 15px 0;
+            margin: 25px 0 10px 0;
             white-space: nowrap;
             text-overflow: ellipsis;
             overflow: hidden;
@@ -76,6 +78,7 @@ s_list
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
+            margin-bottom: 20px;
         }
         .post-commentCnt {
             position: absolute;
@@ -92,16 +95,9 @@ s_list
         }
         .post-date {
             display: flex;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
-            position: absolute;
-            top: 270px; right: 0;
-            padding: 6px 10px;
             font-size: 16px;
-            color: #fff;
-            background-color: rgb(42 42 42 / 50%);
-            border-bottom-left-radius: 5px;
-            border-top-left-radius: 5px;
         }
 
         .bxs-cat {
@@ -126,11 +122,6 @@ s_list
             .post-item { max-width: 767px; }
             .post-thumb-wrap { height: 460px; }
             .post-article-title { font-size: 1.7rem; }
-            .post-date {
-                top: 50px;
-                padding: 6px 12px;
-                font-size: 22px;
-            }
         }
         @media screen and (max-width: 1080px) {
             .post-thumb-wrap {
@@ -160,18 +151,9 @@ s_list
         }
         @media screen and (max-width: 799px) {
             .post-thumb-wrap { 
-                border-radius: 8px;
+                border-radius: 5px;
             }
-        }
-        @media screen and (max-width: 486px) {
-            .post-date {
-                top: 20px;
-                font-size: 14px;
-                padding: 8px 10px;
-            }
-        }
-
-        
+        } 
 
         @keyframes catWorking {
             0% { 
