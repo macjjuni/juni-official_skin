@@ -1,6 +1,7 @@
 div.profile-wrap
     div.img-wrap
         img.profile-img(src="[##_image_##]" alt="blog_profile")
+        span.profile-emoji 👻
     ul.todayCnt
         li
             span(class="cntTxt" id="todayCnt") [##_count_today_##] 
@@ -30,25 +31,30 @@ div.profile-msg
             width: 80px;
             height: 80px;
             border-radius: 40px;
+            transform-style: preserve-3d;
+            will-change: transform;
+            transition: transform 0.5s ease;
+            box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
         }
-        .img-wrap::after {
-            content: '👻';
+        .profile-emoji {
             position: absolute;
             bottom: 8px; right: 8px;
             width: 20px; height: 20px;
             font-size: 2rem;
             z-index: 9000;
+            transition: transform 0.5s ease;
         }
         .profile-img{
+            position: relative;
             width: 80px; height: 80px;
             border-radius: 40px;
             z-index: 9000;
-            box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
-            transform: rotate(0deg);
-            transition: transform 0.5s ease;
         }
-        .profile-img:hover {
-            transform: rotate(10deg);
+        .img-wrap:hover {
+            transform: translateZ(10px) rotateX(20deg) rotateY(30deg);
+        }
+        .img-wrap:hover > .profile-emoji {
+            transform: translateZ(50px);
         }
 
         .todayCnt {
