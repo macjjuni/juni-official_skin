@@ -1,13 +1,6 @@
 s_list
-    section.blog-main-wrap
-        div.effect-wrap
-            div.focus 꾸생의 DevLog
-            div.mask
-                div.blogTitle 꾸생의 DevLog
-        div.mouse
-            div.mouse-wheel
-
-    section.post-list-wrap
+    include MainIntro     
+    section.post-list-wrap    
         section.article-header
             h2.blank
             h2.article-head-txt [##_list_conform_##] ([##_list_count_##])
@@ -26,129 +19,6 @@ s_list
                                 span.post-commentCnt [##_list_rep_rp_cnt_##]
 
     style.
-        .blog-main-wrap {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            height: calc(100vh - 55px);
-            background-color: #cecece;
-            transition: background-color 0.3s ease;
-            user-select: none;
-        }
-        .dark .blog-main-wrap {
-            background-color: #2b2e35;
-        }
-        .effect-wrap {
-            position: relative;
-            width: 500px;
-            height: 70px;
-            white-space: nowrap;
-        }
-        .focus, .mask {
-            letter-spacing: 2px;
-            font-size: 65px;
-            font-family: Arial;
-            text-transform: uppercase;
-            color: #fff;
-        }
-        .focus {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            filter: blur(3px);
-            opacity: 0.6;
-        }
-        .mask {
-            position: absolute;
-            left: -7px;
-            top: -2px;
-            width: 70px;
-            font-weight: bold;
-            clip: rect(0px,70px,75px,0px);
-            background: linear-gradient(#fff, #fff 0) no-repeat,
-                linear-gradient(to right, #fff, #fff 0) no-repeat,
-                linear-gradient(to right, #fff, #fff 0) bottom left no-repeat,
-                linear-gradient(to right, #fff, #fff 0) bottom left no-repeat,
-                linear-gradient(#fff, #fff 0) bottom right no-repeat,
-                linear-gradient(#fff, #fff 0) bottom right no-repeat,
-                linear-gradient(#fff, #fff 0) top right no-repeat,
-                linear-gradient(#fff, #fff 0) top right no-repeat;
-            background-size: 10px 2px, 2px 10px, 2px 10px, 10px 2px, 2px 10px, 10px 2px, 10px 2px, 2px 10px, 10px 2px;
-            padding: 5px;
-            transform: translateX(0);
-            box-sizing: border-box;
-            animation: mask 3s ease infinite alternate;
-        }
-        .blogTitle {
-            color: #fff !important;
-            transform: translateX(0);
-            animation: text 3s ease infinite alternate;
-        }
-
-        @keyframes mask { 
-            to { transform: translateX(450px); } 
-        }
-        @keyframes text { 
-            to { transform: translateX(-450px); } 
-        }
-        @keyframes maskM { 
-            to { transform: translateX(280px); } 
-        }
-        @keyframes textM { 
-            to { transform: translateX(-280px); } 
-        }
-
-        .mouse {
-            position: absolute;
-            bottom: 2rem; left: 50%;
-            transform: translate(-50%, 0);
-            display: flex;
-            width: 30px; height: 50px;
-            border: 1px solid #fff;
-            border-radius: 20px;
-            transition: opacity 0.3s ease;
-        }
-        .mouse-wheel {
-            width: 10px;
-            height: 10px;
-            background-color: #fff;
-            border-radius: 50%;
-            margin: auto;
-            animation: move-wheel 1.25s linear infinite;
-        }
-        .dark .mouse { border: 1px solid #696969; }
-        .dark .mouse-wheel { background-color: #b3b3b3; }
-        
-        @media screen and (max-width: 700px) {
-            .effect-wrap { width: 320px; }
-            .focus, .mask { font-size: 40px; }
-            .blogTitle { animation: textM 3s ease infinite alternate;}
-            .mask {
-                top: 10px;
-                width: 50px;
-                animation: maskM 3s ease infinite alternate;
-                clip: rect(0px, 50px, 55px, 0px);
-            }
-            .mouse { bottom: calc(50% - 200px); }
-            _::-webkit-full-page-media, _:future, :root .focus,
-            _::-webkit-full-page-media, _:future, :root .mask {
-                font-size: 42px;
-            }
-        }
-
-        @keyframes move-wheel {
-            0% {
-                opacity: 0;
-                transform: translateY(-1rem);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(1rem);
-            }
-        }
-
         .post-list-wrap{
             max-width: 1400px;
             margin: 0 auto;
@@ -295,15 +165,3 @@ s_list
             }
         }
     
-    script.
-        const scrollEl = document.querySelector('.mouse')
-        const targetH = scrollEl?.getBoundingClientRect().top - 150;
-
-        if(scrollEl !== null) {
-            window.addEventListener('scroll', ()=> {
-                const top = window.scrollY;
-                const op = scrollEl.style.opacity
-                if(top > targetH) scrollEl.style.opacity = 0;
-                else if(top < targetH) scrollEl.style.opacity = 1;
-            }, {passive:true})
-        }

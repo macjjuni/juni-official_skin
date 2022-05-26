@@ -1,0 +1,101 @@
+s_guest
+    section.guestbook-wrap
+        s_guest_input_form
+            p.commend-input
+                textarea(type="text" name="[##_guest_textarea_body_##]" placeholder="여러분의 소중한 방명록을 남겨주세요" autocomplete="off")
+            div.guestbook-bottom-wrap
+                div.writer-wrap
+                    p.secret-wrap
+                        input(name="[##_guest_input_is_secret_##]" id="secret-input" type="checkbox")
+                        label(for="secret-input")  비밀글
+                    s_guest_member
+                        s_guest_form
+                            div
+                                p.name-wrap 
+                                    label(for="nicName") 닉네임 :
+                                    input(type="text" id="nicName" name="[##_guest_input_name_##]" value="[##_guest_name_##]" title="이름" placeholder="닉네임" autocomplete="off")
+                                p.pw-wrap
+                                    label(for="password") 비밀번호 :
+                                    input(type="password" id="password" maxlength="8" name="[##_guest_input_password_##]" value="[##_guest_password_##]" title="password" placeholder="비밀번호")
+            div(class="guestbook-submit write-wrap")
+                button(type="submit" onclick="[##_guest_onclick_submit_##]" style="box-shadow:none; width: 100%; height: 100%;") 방명록 남기기
+        
+        s_guest_container
+            div.guestbook-list
+                ol
+                    s_guest_rep
+                        li(id="[##_guest_rep_id_##]")
+                            div.rp_general
+                                div(class="[##_guest_rep_class_##] comment-wrap")
+                                    p.comment-name [##_guest_rep_name_##]
+                                    p.comment-content [##_guest_rep_desc_##]
+                                div.control-wrap
+                                    p.comment-date [##_guest_rep_date_##]
+                                    div.control-btn-wrap
+                                        button.commend-write(onclick="[##_guest_rep_onclick_reply_##]") 답글달기
+                                        button.commend-modify(onclick="[##_guest_rep_onclick_delete_##]") 수정/삭제
+
+                            s_guest_reply_container
+                                ul
+                                    s_guest_reply_rep
+                                        li(id="[##_guest_rep_id_##]")
+                                            div(class="[##_guest_rep_class_##] comment-wrap")
+                                                p.comment-name [##_guest_rep_name_##]
+                                                p.comment-content [##_guest_rep_desc_##]
+                                            div.control-wrap
+                                                p.comment-date [##_guest_rep_date_##]
+                                                div.control-btn-wrap
+                                                    span.control-btn-wrap
+                                                        button.commend-write(onclick="[##_guest_rep_onclick_delete_##]") 수정/삭제
+
+    style.
+        #entry0Comment ~ .paging { display: none; }
+        .guestbook-wrap {
+            max-width: 748px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+        .commend-input > textarea {
+            display: block;
+            color: #777777;
+            width: 100%;
+            height: 80px;
+            padding: 8px;
+            border: 1px solid #cccccc;
+            font-size: 16px;
+            letter-spacing: 1px;
+            resize: none;
+            outline: none;
+            transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
+        }
+        .guestbook-secret {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        .control-btn-wrap > button {
+            padding: 0.3rem 0.6rem;
+            margin-left: 5px;
+            font-size: 0.8rem;
+        }
+        .write-wrap > button {
+            width: 100%; height: 40px !important; 
+            font-size: 1rem;
+            border: none;
+            color: #fff;
+            background-color: #12c2e9;  /* fallback for old browsers */
+            background: linear-gradient(to left, #f64f59, #c471ed, #12c2e9);
+            background-size: 400% 400%; 
+            animation: gradationAni 7s ease infinite;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+            cursor: pointer;
+        }
+        .guest_general, .guest_admin {
+            height: 70px;
+        }
+        .dark .write-wrap > button {
+            border: 1px solid #fff;
+        }
+        ul>li.rp_general {
+            margin: 0;
+        }
