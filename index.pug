@@ -115,7 +115,7 @@ block macjjuni
         articleWrap.appendChild(newArti);
       }
       // 0개 댓글 표시
-      const postCnt = document.querySelectorAll('.post-commentCntt')
+      const postCnt = document.querySelectorAll('.post-commentCnt')
       if(postCnt !== null) {
         postCnt.forEach(p => {
           if(p.innerText === '') p.innerText = '(0)';

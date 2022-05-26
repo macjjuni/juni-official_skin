@@ -60,9 +60,8 @@ s_article_rep
         const postBg = document.querySelector('.post-thumb-img')
         if(postBg !== null) {
             window.addEventListener('scroll', ()=> {
-                postBg.style.transform = 'translateY(' + -(window.scrollY*0.15) + 'px)';
-                console.log(postBg.style)
-            })
+                postBg.style.transform = 'translateY(' + -(window.scrollY*0.165) + 'px)';
+            }, {passive:true})
         }
         
 
@@ -258,7 +257,7 @@ s_article_rep
             }
         }
         @media screen and (max-width: 900px) {
-            .post-top-thumb { width: 100vw; height: 100vh; }
+            .post-top-thumb { width: 100vw; }
         }
         @media screen and (max-width: 720px) {
             .content { padding: 0 0 30px 0; }

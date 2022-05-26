@@ -22,7 +22,8 @@ s_list
                         div.post-bottom-wrap
                             h2.post-article-title [##_list_rep_title_##]
                             p.post-summary [##_list_rep_summary_##]
-                            p.post-date [##_list_rep_regdate_##] - [##_list_rep_rp_cnt_##]
+                            p.post-date [##_list_rep_regdate_##] -&nbsp; 
+                                span.post-commentCnt [##_list_rep_rp_cnt_##]
 
     style.
         .blog-main-wrap {
@@ -39,10 +40,7 @@ s_list
             background-color: #2b2e35;
         }
         .effect-wrap {
-            position: absolute;
-            left: 50%;
-            top: calc(50% - 45px);
-            transform: translate(-50%,-50%);
+            position: relative;
             width: 500px;
             height: 70px;
             white-space: nowrap;
@@ -100,6 +98,27 @@ s_list
         @keyframes textM { 
             to { transform: translateX(-280px); } 
         }
+
+        .mouse {
+            position: absolute;
+            bottom: 2rem; left: 50%;
+            transform: translate(-50%, 0);
+            display: flex;
+            width: 30px; height: 50px;
+            border: 1px solid #fff;
+            border-radius: 20px;
+            transition: opacity 0.3s ease;
+        }
+        .mouse-wheel {
+            width: 10px;
+            height: 10px;
+            background-color: #fff;
+            border-radius: 50%;
+            margin: auto;
+            animation: move-wheel 1.25s linear infinite;
+        }
+        .dark .mouse { border: 1px solid #696969; }
+        .dark .mouse-wheel { background-color: #b3b3b3; }
         
         @media screen and (max-width: 700px) {
             .effect-wrap { width: 320px; }
@@ -111,24 +130,13 @@ s_list
                 animation: maskM 3s ease infinite alternate;
                 clip: rect(0px, 50px, 55px, 0px);
             }
+            .mouse { bottom: calc(50% - 200px); }
+            _::-webkit-full-page-media, _:future, :root .focus,
+            _::-webkit-full-page-media, _:future, :root .mask {
+                font-size: 42px;
+            }
         }
-        .mouse {
-            position: absolute;
-            bottom: 2rem; left: 50%;
-            transform: translate(0, -50%);
-            display: flex;
-            width: 30px; height: 50px;
-            border: 1px solid #fff;
-            border-radius: 20px;
-        }
-        .mouse-wheel {
-            width: 10px;
-            height: 10px;
-            background-color: #fff;
-            border-radius: 50%;
-            margin: auto;
-            animation: move-wheel 1.25s linear infinite;
-        }
+
         @keyframes move-wheel {
             0% {
                 opacity: 0;
@@ -143,7 +151,7 @@ s_list
         .post-list-wrap{
             max-width: 1400px;
             margin: 0 auto;
-            padding: 1rem 0;
+            padding: 2rem 0;
         }
         .article-header{
             display: flex;
@@ -203,16 +211,6 @@ s_list
             margin-bottom: 20px;
         }
         .post-commentCnt {
-            position: absolute;
-            top: 0; right: 0;
-            width: 30px; height: 30px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #000;
-            border-radius: 5px;
-        }
-        .post-commentCntt {
             color: #fff;
         }
         .post-date {
@@ -294,4 +292,17 @@ s_list
                 left: 0;  
                 transform: scaleX(1);
             }
+        }
+    
+    script.
+        const scrollEl = document.querySelector('.mouse')
+        const targetH = scrollEl?.getBoundingClientRect().top - 150;
+
+        if(scrollEl !== null) {
+            window.addEventListener('scroll', ()=> {
+                const top = window.scrollY;
+                const op = scrollEl.style.opacity
+                if(top > targetH) scrollEl.style.opacity = 0;
+                else if(top < targetH) scrollEl.style.opacity = 1;
+            }, {passive:true})
         }
