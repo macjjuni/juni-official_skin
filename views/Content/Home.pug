@@ -1,9 +1,11 @@
 s_list
     section.blog-main-wrap
-        div.wrapper
+        div.effect-wrap
             div.focus 꾸생의 DevLog
             div.mask
                 div.blogTitle 꾸생의 DevLog
+        div.mouse
+            div.mouse-wheel
 
     section.post-list-wrap
         section.article-header
@@ -23,17 +25,20 @@ s_list
                             p.post-date [##_list_rep_regdate_##] - [##_list_rep_rp_cnt_##]
 
     style.
-
         .blog-main-wrap {
             position: relative;
             display: flex;
             justify-content: center;
             align-items: center;
             width: 100%;
-            height: 100vh;
-            background: #cecece;
+            height: calc(100vh - 55px);
+            background-color: #cecece;
+            transition: background-color 0.3s ease;
         }
-        .wrapper {
+        .dark .blog-main-wrap {
+            background-color: #2b2e35;
+        }
+        .effect-wrap {
             position: absolute;
             left: 50%;
             top: calc(50% - 45px);
@@ -58,7 +63,7 @@ s_list
         }
         .mask {
             position: absolute;
-            left: -5px;
+            left: -7px;
             top: -2px;
             width: 70px;
             font-weight: bold;
@@ -83,40 +88,58 @@ s_list
             animation: text 3s ease infinite alternate;
         }
 
-        @keyframes mask {
-            to {
-                transform: translateX(455px);
-            }
+        @keyframes mask { 
+            to { transform: translateX(450px); } 
         }
-        @keyframes text {
-            to {
-                transform: translateX(-455px);
-            }
+        @keyframes text { 
+            to { transform: translateX(-450px); } 
         }
-         @keyframes maskM {
-            to {
-                transform: translateX(280px);
-            }
+        @keyframes maskM { 
+            to { transform: translateX(280px); } 
         }
-        @keyframes textM {
-            to {
-                transform: translateX(-280px);
-            }
+        @keyframes textM { 
+            to { transform: translateX(-280px); } 
         }
+        
         @media screen and (max-width: 700px) {
-            .wrapper { width: 320px; }
-            .focus, .mask {
-                font-size: 40px;
-            }
-            .blogTitle {
-                animation: textM 3s ease infinite alternate;
-            }
+            .effect-wrap { width: 320px; }
+            .focus, .mask { font-size: 40px; }
+            .blogTitle { animation: textM 3s ease infinite alternate;}
             .mask {
-                top: 8px;
+                top: 10px;
                 width: 50px;
                 animation: maskM 3s ease infinite alternate;
+                clip: rect(0px, 50px, 55px, 0px);
             }
         }
+        .mouse {
+            position: absolute;
+            bottom: 2rem; left: 50%;
+            transform: translate(0, -50%);
+            display: flex;
+            width: 30px; height: 50px;
+            border: 1px solid #fff;
+            border-radius: 20px;
+        }
+        .mouse-wheel {
+            width: 10px;
+            height: 10px;
+            background-color: #fff;
+            border-radius: 50%;
+            margin: auto;
+            animation: move-wheel 1.25s linear infinite;
+        }
+        @keyframes move-wheel {
+            0% {
+                opacity: 0;
+                transform: translateY(-1rem);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(1rem);
+            }
+        }
+
         .post-list-wrap{
             max-width: 1400px;
             margin: 0 auto;
