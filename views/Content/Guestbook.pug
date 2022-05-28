@@ -1,51 +1,56 @@
 s_guest
     section.guestbook-wrap
-        s_guest_input_form
-            p.commend-input
-                textarea(type="text" name="[##_guest_textarea_body_##]" placeholder="여러분의 소중한 방명록을 남겨주세요" autocomplete="off")
-            div.guestbook-bottom-wrap
-                div.writer-wrap
-                    p.secret-wrap
-                        input(name="[##_guest_input_is_secret_##]" id="secret-input" type="checkbox")
-                        label(for="secret-input")  비밀글
-                    s_guest_member
-                        s_guest_form
-                            div
-                                p.name-wrap 
-                                    label(for="nicName") 닉네임 :
-                                    input(type="text" id="nicName" name="[##_guest_input_name_##]" value="[##_guest_name_##]" title="이름" placeholder="닉네임" autocomplete="off")
-                                p.pw-wrap
-                                    label(for="password") 비밀번호 :
-                                    input(type="password" id="password" maxlength="8" name="[##_guest_input_password_##]" value="[##_guest_password_##]" title="password" placeholder="비밀번호")
-            div(class="guestbook-submit write-wrap")
-                button(type="submit" onclick="[##_guest_onclick_submit_##]" style="box-shadow:none; width: 100%; height: 100%;") 방명록 남기기
-        
-        s_guest_container
-            div.guestbook-list
-                ol
-                    s_guest_rep
-                        li(id="[##_guest_rep_id_##]")
-                            div.rp_general
-                                div(class="[##_guest_rep_class_##] comment-wrap")
-                                    p.comment-name [##_guest_rep_name_##]
-                                    p.comment-content [##_guest_rep_desc_##]
-                                div.control-wrap
-                                    p.comment-date [##_guest_rep_date_##]
-                                    div.control-btn-wrap
-                                        button.commend-write(onclick="[##_guest_rep_onclick_reply_##]") 답글달기
-                                        button.commend-modify(onclick="[##_guest_rep_onclick_delete_##]") 수정/삭제
+        section.guestbook-header
+            h2.blank
+            h2.guestbook-header-txt
+                i(class="bx bx-ghost bx-md bx-tada")
+                | 방명록
+        section.guestbook-body
+            s_guest_input_form
+                p.commend-input
+                    textarea(type="text" name="[##_guest_textarea_body_##]" placeholder="여러분의 소중한 방명록을 남겨주세요 🙏" autocomplete="off")
+                div.guestbook-bottom-wrap
+                    div.writer-wrap
+                        p.secret-wrap
+                            input(name="[##_guest_input_is_secret_##]" id="secret-input" type="checkbox")
+                            label(for="secret-input")  비밀글
+                        s_guest_member
+                            s_guest_form
+                                div
+                                    p.name-wrap 
+                                        label(for="nicName") 닉네임 :
+                                        input(type="text" id="nicName" name="[##_guest_input_name_##]" value="[##_guest_name_##]" title="이름" placeholder="닉네임" autocomplete="off")
+                                    p.pw-wrap
+                                        label(for="password") 비밀번호 :
+                                        input(type="password" id="password" maxlength="8" name="[##_guest_input_password_##]" value="[##_guest_password_##]" title="password" placeholder="비밀번호")
+                div(class="guestbook-submit write-wrap")
+                    button(type="submit" onclick="[##_guest_onclick_submit_##]" style="box-shadow:none; width: 100%; height: 100%;") 방명록 남기기
+            
+            s_guest_container
+                div.guestbook-list
+                    ol
+                        s_guest_rep
+                            li(id="[##_guest_rep_id_##]")
+                                div.g-rp_general
+                                    div(class="[##_guest_rep_class_##] comment-wrap")
+                                        p.g-comment-name [##_guest_rep_name_##]
+                                        p.comment-content [##_guest_rep_desc_##]
+                                    div.control-wrap
+                                        p.comment-date [##_guest_rep_date_##]
+                                        div.control-btn-wrap
+                                            button.commend-write(onclick="[##_guest_rep_onclick_reply_##]") 답글달기
+                                            button.commend-modify(onclick="[##_guest_rep_onclick_delete_##]") 수정/삭제
 
-                            s_guest_reply_container
-                                ul
-                                    s_guest_reply_rep
-                                        li(id="[##_guest_rep_id_##]")
-                                            div(class="[##_guest_rep_class_##] comment-wrap")
-                                                p.comment-name [##_guest_rep_name_##]
-                                                p.comment-content [##_guest_rep_desc_##]
-                                            div.control-wrap
-                                                p.comment-date [##_guest_rep_date_##]
-                                                div.control-btn-wrap
-                                                    span.control-btn-wrap
+                                s_guest_reply_container
+                                    ul
+                                        s_guest_reply_rep
+                                            li(id="[##_guest_rep_id_##]")
+                                                div(class="[##_guest_rep_class_##] comment-wrap")
+                                                    p.g-comment-name [##_guest_rep_name_##]
+                                                    p.comment-content [##_guest_rep_desc_##]
+                                                div.control-wrap
+                                                    p.comment-date [##_guest_rep_date_##]
+                                                    div.control-btn-wrap
                                                         button.commend-write(onclick="[##_guest_rep_onclick_delete_##]") 수정/삭제
 
     style.
@@ -55,12 +60,41 @@ s_guest
             margin: 0 auto;
             padding: 2rem 0;
         }
+        @media screen and (max-width: 1080px) {
+            .guestbook-wrap { padding: 1rem; }
+        }
+        .guestbook-header {
+            display: flex;
+            flex-wrap: nowrap;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            padding: 15px 0;
+            margin: 0 0 20px 0;
+        }
+        .guestbook-header > h2{
+            max-width: 544px; 
+            font-weight: bold;
+            width: 100%; 
+        }
+        .guestbook-header-txt {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            font-size: 24px; 
+            text-align: right;
+        }
+        .bx-ghost {
+            color: #0e235f;
+            margin-right: 10px;
+        }
+        .dark .bx-ghost { color: #b3b8bd; }
         .commend-input > textarea {
             display: block;
             color: #777777;
             width: 100%;
             height: 80px;
-            padding: 8px;
+            padding: 10px;
             border: 1px solid #cccccc;
             font-size: 16px;
             letter-spacing: 1px;
@@ -83,6 +117,7 @@ s_guest
             font-size: 1rem;
             border: none;
             color: #fff;
+            border: 1px solid transparent;
             background-color: #12c2e9;  /* fallback for old browsers */
             background: linear-gradient(to left, #f64f59, #c471ed, #12c2e9);
             background-size: 400% 400%; 
@@ -91,11 +126,56 @@ s_guest
             cursor: pointer;
         }
         .guest_general, .guest_admin {
-            height: 70px;
+            min-height: 70px;
         }
         .dark .write-wrap > button {
             border: 1px solid #fff;
         }
-        ul>li.rp_general {
+        ul>li.g-rp_general {
             margin: 0;
+        }
+        .g-rp_general, .g-rp_general ~ ul>li {
+            border: 1px solid #fff;
+            transition: border 0.3s ease;
+        }
+        .dark .g-rp_general, .dark .g-rp_general ~ ul>li{
+            background-color: #242428;
+            border: 1px solid #4f4f4f;
+        }
+        .g-comment-name {
+            width: 80px;
+            padding: 6px 0;
+            font-size: 14px;
+            white-space: nowrap;
+            text-align: center;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            border: 1px solid #d7dde4;
+            border-radius: 3px;
+            background-color: #fff;
+            box-shadow: rgb(0 0 0 / 10%) 0px 1px 2px 0px;
+            transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
+        }
+        .dark .g-comment-name {
+            border: 1px solid #4f4f4f;
+            background-color: #3f3f45;
+        }
+        .g-comment-name > a {
+            position: relative;
+            top: 1px;
+            padding: 0 2px;
+        }
+
+        .g-rp_general, .g-rp_general ~ ul>li{
+            padding: 10px;
+            background: #f2f2f2;
+            border-radius: 3px;
+            margin-top: 20px;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+            transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
+        }
+
+        .g-rp_general ~ ul>li {
+            margin-left: 30px;
+            margin-top: 8px !important;
         }

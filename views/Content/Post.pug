@@ -3,7 +3,6 @@ s_article_rep
         div.post-top-thumb
             s_article_rep_thumbnail
                 div.post-thumb-img(style="background-image: url('[##_article_rep_thumbnail_raw_url_##]')")
-                //- img.post-thumb-img(src="[##_article_rep_thumbnail_raw_url_##]" alt="123")
                 div.post-thumb-info
                     h2.post-thumb-title [##_article_rep_title_##]
                     p.post-thumb-sub
@@ -20,11 +19,13 @@ s_article_rep
                             span [##_s_ad_s1_label_##]
                             a(href="[##_s_ad_m_link_##]") 수정
                     div.post-author 작성자 : [##_article_rep_author_##]
+                include ../Ads/ResAds
                 div.post-content [##_article_rep_desc_##]
                 div.post-commend
                     s_rp
                         include CommentWrite
                         include CommentList
+                include ../Ads/PostBottom
             div.post-toc
 
     script(scoped).
@@ -83,7 +84,7 @@ s_article_rep
             position: sticky;
             top: 70px;
             display: block;
-            width: 250px;
+            width: 260px;
             margin-left: 1rem;
             padding: 12px 7px;
             border-radius: 2px;
@@ -134,9 +135,9 @@ s_article_rep
             flex-wrap: wrap;
             align-content: center;
             position: absolute;
-            bottom: 64px; left: 0;
+            bottom: 100px; left: 0;
             width: 100%;
-            padding: 1.2rem 0 1.2rem 24px;
+            padding: 60px 40px;
             background-color: rgba(0,0,0,0.5);
             z-index: 7000;
         }
@@ -144,7 +145,8 @@ s_article_rep
             width: 100%;
             padding: 0.5rem 0;
             margin-bottom: 10px;
-            font-size: 36px;
+            font-size: 40px;
+            line-height: 1.1;
             text-align: left;
             color: #fff;
         }
@@ -176,7 +178,7 @@ s_article_rep
             align-items: center;
         }
         .post-admin > a {
-            margin-left: 0.5rem;
+            margin-left: 15px;
         }
         .post-author { 
             padding: 8px 10px;
@@ -192,12 +194,20 @@ s_article_rep
             color: #bcbcbc;
             background: #50525d;
         }
-        .post-content p {
-            line-height: 1.3;
+        hr[data-ke-style], #tt-body-page hr[data-ke-style] {
+            cursor: default !important;
         }
-        .post-content h2, .post-content h3, .post-content h4 {
-            padding: 0.5rem 0 !important;
-            line-height: 1.3;
+        .post-content p {
+            line-height: 1.6;
+        }
+        .post-content h2, .post-content h3, .post-content h4, .post-content h2 b, .post-content h3 b, .post-content h4 b {
+            color: #293643 !important;
+            font-weight: bold !important;
+            line-height: 1.5 !important;
+            transition: color 0.3s ease !important;
+        }
+        .dark .post-content h2, .dark .post-content h3, .dark .post-content h4, .dark .post-content h2 b, .dark .post-content h3 b, .dark .post-content h4 b {
+            color: #dce2e8 !important;
         }
         .tt_article_useless_p_margin {
             position: relative;
@@ -255,6 +265,15 @@ s_article_rep
                 width: 100%;
                 padding: 0 10px;
             }
+            .post-thumb-info {
+                padding: 25px;
+            }
+            .post-thumb-title {
+                font-size: 32px;
+            }
+            .post-thumb-sub {
+                font-size: 18px;
+            }
         }
         @media screen and (max-width: 900px) {
             .post-top-thumb { width: 100vw; }
@@ -268,11 +287,18 @@ s_article_rep
             }
         }
 
+        @media screen and (max-width: 486px) {
+            .post-thumb-title { 
+                font-size: 26px; 
+                margin-top: 0;
+            }
+            .post-thumb-info { padding: 16px; }
+        }
         .toc-list {
             margin-top: 10px !important;
             font-size: 0.9em;
         }
-        .toc-list >li:first-child {
+        .toc-list >li {
             margin-bottom: 10px !important;
         }
         .toc > .toc-list li {
@@ -284,9 +310,95 @@ s_article_rep
         }
 
         .toc > .toc-list li a {
+            font-size: 15px !important;
             text-decoration: none;
         }
         .toc>.toc-list {
             overflow: hidden;
             position: relative;
+        }
+        figure.imageblock.alignCenter{
+            margin: 20px auto 20px auto !important;
+        }
+
+        /* ---------------- code eidtor ---------------- */
+        pre {
+            position: relative;
+            padding: 0; margin: 20px 0;
+            font-size: 16px;
+            color: rgba(34, 85, 51, 0.87);
+            white-space: pre-wrap;
+            border-radius: 4px;
+            background: rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+        }
+
+        pre>.hljs{
+            padding: 44px 15px 20px 15px;
+            border-radius: 4px;
+            border-top-left-radius: 6px;
+            border-top-right-radius: 6px;
+            background-color: #363a45;
+            font-family: 'Nanum Gothic Coding', monospace;
+            font-size: 16px;
+            letter-spacing: .4px;
+            color: #f1f1f1 !important;
+        }
+        .dark pre>.hljs{
+            background-color: #393b40;
+        }
+        .hljs-comment, .hljs-quote, .hljs-deletion, .hljs-meta{
+            color: #60A855 !important;
+        }
+
+        .hljs>span{
+            line-height: 24px;
+        }
+
+        pre::after{
+            position: absolute;
+            top: 0; left: 0 ;
+            content: '';
+            width: 100%;
+            height: 24px;
+            background: #ededed;
+            z-index: 10;
+            transition: background-color 0.3s ease;
+        }
+
+        .dark pre::after {
+            background: #3f63bb;
+        }
+
+        pre::before{
+            position: absolute;
+            top: 5px; left: 5px;
+            content: '';
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #fd5350;
+            z-index: 11;
+        }
+
+        pre>.hljs::after{
+            position: absolute;
+            top: 5px; left: 24px;
+            content: '';
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #fdb23a;
+                z-index: 11;
+        }
+
+        pre>.hljs::before{
+            position: absolute;
+            top: 5px; left: 43px;
+            content: '';
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #2cbf44;
+                z-index: 11;
         }

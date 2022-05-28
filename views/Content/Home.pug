@@ -1,15 +1,18 @@
 s_list
-    include MainIntro     
+    include MainIntro
+    include ../Ads/ResAds
     section.post-list-wrap    
         section.article-header
             h2.blank
-            h2.article-head-txt [##_list_conform_##] ([##_list_count_##])
+            h2.article-head-txt
+                i(class="bx bxs-book-content bx-md bx-fade-left")
+                | [##_list_conform_##] ([##_list_count_##])
         section.article-wrap
             s_list_rep
                 article.post-item
                     i(class="bx bxs-cat bx-lg")
                     a.post-link(href="[##_list_rep_link_##]")
-                        div.post-thumb-wrap(style="background: url('[##_image_##]') no-repeat center / 100%;")
+                        div.post-thumb-wrap(style="background: url('https://tistory3.daumcdn.net/tistory/3617178/skin/images/thumbnail_cover.jpeg') no-repeat center / 100%;")
                             s_list_rep_thumbnail
                                 img.post-thumb(src="[##_list_rep_thumbnail_##]" alt="Post Thumbnail")
                         div.post-bottom-wrap
@@ -22,7 +25,7 @@ s_list
         .post-list-wrap{
             max-width: 1400px;
             margin: 0 auto;
-            padding: 2rem 0;
+            padding: 0;
         }
         .article-header{
             display: flex;
@@ -31,15 +34,28 @@ s_list
             justify-content: space-around;
             align-items: center;
             padding: 15px 0;
+            margin: 0 0 20px 0;
         }
         .article-header > h2{
             max-width: 544px; 
+            font-weight: bold;
             width: 100%; 
         }
         .article-head-txt { 
-            font-size: 1.25rem; 
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            font-size: 24px;
+            white-space: nowrap;
             text-align: right;
         }
+        .bxs-book-content {
+            color: #0e235f;
+            margin-right: 10px;
+        }
+        .bxs-cat { color: #0182ff; }
+        .dark .bxs-book-content { color: #b3b8bd; }
+
         .article-wrap{
             position: relative;
             display: flex;
@@ -56,6 +72,8 @@ s_list
             width: 100%;
             margin-bottom: 60px;
         }
+        .post-item:hover .post-article-title { color: #000; }
+        .dark .post-item:hover .post-article-title { color: #fff; }
         .post-thumb-wrap { 
             position: relative;
             width: 100%; height: 327px;
@@ -63,26 +81,36 @@ s_list
             box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
             overflow: hidden;
         }
+        .post-thumb-wrap::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            display: inline-block;
+            width: 100%; height: 100%;
+            background-color: transparent;
+            transition: background-color 0.3s ease;
+        }
+        .dark .post-thumb-wrap::after { background-color: rgba(0,0,0,0.15); }
         .post-thumb {
             display: inline-block;
             width: 100%; height: 100%;
         }
         .post-article-title {
-            font-size: 1.38rem;
+            font-size: 22px;
             font-weight: bold;
             margin: 25px 0 10px 0;
             white-space: nowrap;
             text-overflow: ellipsis;
             overflow: hidden;
         }
+        .post-article-title > img {
+            display: none;
+        }
         .post-summary {
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
             margin-bottom: 20px;
-        }
-        .post-commentCnt {
-            color: #fff;
         }
         .post-date {
             display: flex;
@@ -106,18 +134,18 @@ s_list
             }
             .article-header{
                 max-width: 767px;
-                margin: 1rem auto 0 auto;
+                margin: 16px auto 20px auto;
             }
             .post-item { max-width: 767px; }
             .post-thumb-wrap { height: 460px; }
-            .post-article-title { font-size: 1.7rem; }
+            .post-article-title { font-size: 27px; }
         }
         @media screen and (max-width: 1080px) {
             .post-thumb-wrap {
                 height: calc( (100vw - (280px + 2rem)) /5 * 3 );
             }
             .post-list-wrap {
-                padding: 0 1rem;
+                padding: 0 24px;
             }
         }
         @media screen and (max-width: 900px) {
@@ -128,13 +156,13 @@ s_list
         @media screen and (max-width: 799px) {
             .article-wrap { padding: 10px 0; }
             .article-head-txt { 
-                font-size: 1rem; 
+                font-size: 22px;
                 text-align: right;
             }
             .post-thumb-wrap { height: calc((100vw - 2rem) / 5 * 3); }
             .post-article-title { 
                 margin: 20px 0 8px 0;
-                font-size: 1.25rem; 
+                font-size: 20px; 
             }
   
         }

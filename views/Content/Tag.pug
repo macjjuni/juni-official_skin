@@ -1,0 +1,60 @@
+s_tag
+    section.tag-wrap
+        section.tag-header
+            h2.blank
+            h2.tag-header-txt
+                i(class="bx bx-ghost bx-md bx-tada")
+                | 태그 목록
+        section.tag-body
+            ul.tag-list
+                s_tag_rep
+                    li
+                        i(class="bx bx-purchase-tag-alt bx-sm bx-tada")
+                        a(href="[##_tag_link_##]" class="[##_tag_class_##]") [##_tag_name_##]
+
+    style.
+        .tag-wrap {
+            max-width: 748px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+        .tag-header {
+            display: flex;
+            flex-wrap: nowrap;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            padding: 15px 0;
+            margin: 0 0 20px 0;
+        }
+        .tag-header-txt {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            font-size: 24px; 
+            text-align: right;
+        }
+        .tag-header > h2{
+            max-width: 544px; 
+            font-weight: bold;
+            width: 100%; 
+        }
+        .tag-list > li {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            padding: 10px 5px;
+            margin-right: 5px;
+            list-style: none;
+        }
+        .tag-list > li > a {
+            margin-left: 5px;
+        }
+        .tag-list > li:hover a {
+            text-decoration-line: underline;
+            text-decoration-style: solid;
+            text-decoration-color: #2c3e50;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 2px;
+        }
