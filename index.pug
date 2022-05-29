@@ -57,8 +57,11 @@ block macjjuni
     .dark * { color: #c3c8cc; }
     #macjjuni, .header { transition: 0.33s ease; }
     
-    .dark { background-color: #2b2e35; }
-    .dark .header, .dark .sidebar { background-color: #1b1d23; }
+    .sidebar, .header { background-color: #fff; }
+
+    .dark { background-color: #232529; }
+    .dark .header, .dark .sidebar { background-color: #2a2c31; }
+
     @media screen and (max-width: 900px) {
       #macjjuni { padding: 55px 0 0 0; }
     }
@@ -73,6 +76,7 @@ block macjjuni
     .load-done .btn_tool { opacity: 1 !important; }
     .menu_toolbar { 
       top: 12px !important; right: 60px !important;
+      transform: none !important;
       height: auto;
     }
     .btn_menu_toolbar {
@@ -150,6 +154,5 @@ block macjjuni
       todayCnt.start();
       ydayCnt.start();
       totalCnt.start();
-
     }
     

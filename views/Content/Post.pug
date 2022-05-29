@@ -200,11 +200,29 @@ s_article_rep
         .post-content p {
             line-height: 1.6;
         }
+        #tt-body-page p[data-ke-size='size18'], p[data-ke-size='size18'] {
+            font-size: 1rem !important;
+        }
+        #tt-body-page p[data-ke-size='size16'], p[data-ke-size='size16'] {
+            font-size: 0.95rem !important;
+        }
+        #tt-body-page p[data-ke-size='size14'], p[data-ke-size='size14'] {
+            font-size: 0.9rem !important;
+        }
         .post-content h2, .post-content h3, .post-content h4, .post-content h2 b, .post-content h3 b, .post-content h4 b {
             color: #293643 !important;
+            padding: 50px 0 0 0;
             font-weight: bold !important;
             line-height: 1.5 !important;
             transition: color 0.3s ease !important;
+        }
+        .post-content ul, .post-content ol {
+            padding-left: 20px;
+            margin: 1rem 0;
+        }
+        .post-content ul > li, .post-content ol > li {
+            padding: 10px 0;
+            font-size: 1rem;
         }
         .dark .post-content h2, .dark .post-content h3, .dark .post-content h4, .dark .post-content h2 b, .dark .post-content h3 b, .dark .post-content h4 b {
             color: #dce2e8 !important;
@@ -214,6 +232,22 @@ s_article_rep
             min-height: 350px;
             padding-bottom: 70px;
         }
+        .dark figure[data-ke-type='opengraph'] div.og-text p.og-title, #tt-body-page figure[data-ke-type='opengraph'] div.og-text p.og-title {
+            color: inherit;
+        }
+        figure[data-ke-type='opengraph'] a, #tt-body-page figure[data-ke-type='opengraph'] a {
+            border: 1px solid #e4e4e4 !important;
+        }
+        figure[data-ke-type='opengraph'] div.og-image {
+            border-right: 1px solid #e4e4e4 !important;
+        }
+        .dark figure[data-ke-type='opengraph'] a, #tt-body-page figure[data-ke-type='opengraph'] a {
+            border: 1px solid #676767;
+        }
+        .dark figure[data-ke-type='opengraph'] div.og-image {
+            border-right: 1px solid #676767;
+        }
+
         .container_postbtn { 
             position: absolute !important;
             bottom: 0; left: 0;
@@ -287,6 +321,7 @@ s_article_rep
             }
         }
 
+
         @media screen and (max-width: 486px) {
             .post-thumb-title { 
                 font-size: 26px; 
@@ -298,17 +333,9 @@ s_article_rep
             margin-top: 10px !important;
             font-size: 0.9em;
         }
-        .toc-list >li {
-            margin-bottom: 10px !important;
-        }
-        .toc > .toc-list li {
-            margin-bottom: 10px;
-        }
-
-        .toc > .toc-list li:last-child {
-            margin-bottom: 0;
-        }
-
+        .toc-list >li { margin-bottom: 10px !important; }
+        .toc > .toc-list li { margin-bottom: 10px; }
+        .toc > .toc-list li:last-child { margin-bottom: 0; }
         .toc > .toc-list li a {
             font-size: 15px !important;
             text-decoration: none;
@@ -326,34 +353,26 @@ s_article_rep
             position: relative;
             padding: 0; margin: 20px 0;
             font-size: 16px;
-            color: rgba(34, 85, 51, 0.87);
             white-space: pre-wrap;
-            border-radius: 4px;
+            border-radius: 6px;
             background: rgba(0, 0, 0, 0.05);
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
             overflow: hidden;
         }
 
         pre>.hljs{
             padding: 44px 15px 20px 15px;
-            border-radius: 4px;
-            border-top-left-radius: 6px;
-            border-top-right-radius: 6px;
-            background-color: #363a45;
+            background-color: #3a3a3a;
             font-family: 'Nanum Gothic Coding', monospace;
             font-size: 16px;
             letter-spacing: .4px;
-            color: #f1f1f1 !important;
         }
         .dark pre>.hljs{
             background-color: #393b40;
         }
-        .hljs-comment, .hljs-quote, .hljs-deletion, .hljs-meta{
-            color: #60A855 !important;
-        }
-
-        .hljs>span{
-            line-height: 24px;
-        }
+        .javascript, .xml { color: #fff; }
+        .hljs-tag { color: #e06c75; }
+        .hljs span{ line-height: 24px; }
 
         pre::after{
             position: absolute;
@@ -401,4 +420,10 @@ s_article_rep
             border-radius: 50%;
             background: #2cbf44;
                 z-index: 11;
+        }
+        @media screen and (max-width: 700px) {
+            pre {
+                margin: 20px -10px;
+                border-radius: 0;
+            }
         }
