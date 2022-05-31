@@ -101,7 +101,7 @@ block macjjuni
 
   script(scoped).
     AOS.init();
-    window.onload = () => {
+    window.addEventListener('DOMContentLoaded', () => {
       const load = document.querySelector('.load-bg'); // 로딩 스피너
       load.style.opacity = 0;
 
@@ -154,5 +154,6 @@ block macjjuni
       todayCnt.start();
       ydayCnt.start();
       totalCnt.start();
-    }
+
+    })
     
