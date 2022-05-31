@@ -1,0 +1,93 @@
+div.price-wrap
+    div.slide-wrap
+        span(class="item-BTC") BTC
+        span(class="item-ETH") ETH
+        span(class="item-XRP") XRP
+        span(class="item-LTC") LTC
+        span(class="item-ORBS") ORBS
+
+    script(scoped).
+        
+        const slideBar = document.querySelector(".slide-wrap");
+
+        setInterval(()=>{  
+            const upbit = "https://api.upbit.com/v1/ticker?markets=";
+            const crypto = "KRW-BTC,KRW-ETH,KRW-XRP,KRW-LTC,KRW-ORBS";
+            axios.get(upbit + crypto).then(res => {
+                const data = res.data;                
+                res.data.forEach((el, idx) => {
+                    if(el.change === "RISE"){
+                        slideBar.children[idx].innerHTML = `<span class="ticker-txt">${data[idx].market.substr(4,4)} :</span><span class="ticker-price-rise">${data[idx].trade_price.toLocaleString()}</span>`;
+                    }else if(el.change === "FALL"){
+                        slideBar.children[idx].innerHTML = `<span class="ticker-txt">${data[idx].market.substr(4,4)} :</span><span class="ticker-price-fall">${data[idx].trade_price.toLocaleString()}</span>`;
+                    }else{
+                        slideBar.children[idx].innerHTML = `<span class="ticker-txt">${data[idx].market.substr(4,4)} :</span><span class="ticker-price-same">${data[idx].trade_price.toLocaleString()}</span>`;
+                    }
+                })          
+            }).catch(err => {
+                console.log(err);
+            });
+        }, 1200);
+
+    style.
+        .price-wrap {
+            position: relative;
+            display: inline-block;
+            padding: 18px 0;
+            margin: 1.5rem -1rem 0 -1rem;
+            box-sizing: border-box;
+            width: 280px;
+            background-color: #161a1e;
+            user-select: none;
+            overflow: hidden;
+            z-index: 9998;
+        }
+        .ticker-txt{ color: #fff !important; }
+        .slide-wrap>span{
+            position: absolute;
+            top: 50%; left: 110%;
+            transform: translate(0, -50%);
+            display: inline-block;
+            width: 130px;
+            height: 20px;
+            white-space: nowrap;
+            text-align: center;
+            color: #fff;
+            font-size: 13px;
+            font-family: 'IBM Plex Sans', sans-serif;
+            border: 1px solid #514d4d;
+        }
+        .slide-wrap>span span{
+            font-size: 13px;
+            margin: 2px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .slide-wrap:after{
+            content: 'Upbit';
+            display: inline-block;
+            position: absolute;
+            top: 0; left: 0;
+            height: 100%;
+            background-color: #093687;
+            z-index: 9999;
+            padding: 10px;
+            font-size: 15px;
+            color: #fff;
+            font-weight: bold;
+            font-style: italic;
+            font-family: 'IBM Plex Sans', sans-serif;
+        }
+        .ticker-price-fall{ color: #f6465d; }
+        .ticker-price-rise{	color: #0ecb81; }
+        .ticker-price-same{ color: #fff; }
+        .item-BTC{ animation: slidingSlow 20s 0s linear infinite; }
+        .item-ETH{ animation: slidingSlow 20s 4s linear infinite; }
+        .item-XRP{ animation: slidingSlow 20s 8s linear infinite; }
+        .item-LTC{ animation: slidingSlow 20s 12s linear infinite; }
+        .item-ORBS{ animation: slidingSlow 20s 16s linear infinite; }
+        @keyframes slidingSlow {
+            from{ left: 100%; }
+            to{ left: -150%; }
+        }
+        

@@ -1,38 +1,16 @@
-div.today-wrap
+div.link-wrap
     a.githubBtn(href="https://github.com/junheeleeme" target="_blank")
         i(class="bx bx-md bxl-github")
     a.instaBtn(href="https://www.instagram.com/ju_ni_official/" target="_blank")
         i(class="bx bx-md bxl-instagram")
-    a.chartToggle(href="javascript:void(0)")
-        i(class="bx bx-md bxl-bitcoin")
-
-    script.
-        const btnToggle = document.querySelector('.chartToggle');
-        btnToggle.addEventListener('click', (e)=> {
-            e.preventDefault();
-            const chart = document.querySelector('.chart-wrap');
-            if (!chart.classList.contains('chart-show')) {
-                chart.classList.add('chart-show');
-                btnToggle.children[0].classList.add('bitcoin')
-            } else {
-                chart.style.left = "";
-                chart.classList.remove('chart-show');
-                btnToggle.children[0].classList.remove('bitcoin')
-            }
-        })
-        const closeBtn = document.querySelector('#closeChart');
-        closeBtn.addEventListener('click', (e)=> {
-            const chart = document.querySelector('.chart-wrap');
-            chart.classList.remove('chart-show')
-        })
 
     style.
-        .today-wrap{
+        .link-wrap{
             display: flex;
             justify-content: flex-end;
             align-items: center;
         }
-        .today-wrap > a { margin: 0 0 0 1.2rem; }
+        .link-wrap > a { margin: 0 0 0 1.2rem; }
         .githubBtn {
             width: 28px;
             height: 28px;
@@ -44,12 +22,7 @@ div.today-wrap
             border-radius: 8px;
         }
         .instaBtn>i { margin-top: 1px; }
-        .chartToggle{
-            width: 29px;
-            height: 29px;
-            border-radius: 15px;
-        }
-        .githubBtn, .instaBtn, .chartToggle {
+        .githubBtn, .instaBtn {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -60,12 +33,7 @@ div.today-wrap
             background: #fff;
             color: #000;
         }
-        .bxl-bitcoin{
-            transition: 0.6s ease;
-            color: #f7931a;
-        }
         .bxl-instagram { color: #bc2a8d; }
-        .bitcoin { color: #b95aff; }
         @media screen and (max-width: 550px) {
             .chartToggle { display: none; }
             .chart-wrap { display: none; }
