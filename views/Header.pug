@@ -1,7 +1,20 @@
 header.header
   include Header/Title
   include Header/RightMenu
-  
+  span.status-bar
+
+    script.
+      // 헤더 상태바 
+      let allHeight = document.querySelector('body').clientHeight;
+      const statusBar = document.querySelector('.status-bar');
+      window.addEventListener('scroll', () => {
+        const scrollY = (window.scrollY / (allHeight - window.innerHeight) * 100).toFixed(3);
+        statusBar.style.width = scrollY + "%";
+      }, {passive: true})
+      window.addEventListener('resize', () => {
+        allHeight = document.querySelector('body').clientHeight;
+      }, {passive: true})
+    
   style.
     .header{
       position: fixed;
@@ -16,5 +29,12 @@ header.header
       overflow: hidden;
       z-index: 9990;
     }
+    .status-bar {
+      position: absolute; bottom: 0; left: 0;
+      width: 0%; height: 2px;
+      background-color: #000;
+      transition: background-color 0.3s ease;
+    }
+    .dark .status-bar { background-color: #fff; }
 //- background-color: rgba(246, 246, 246, 0.5);
 //- backdrop-filter: blur(2px);
