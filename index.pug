@@ -125,17 +125,17 @@ block macjjuni
         const tc = ts * t;
         return b + c * (tc + -3 * ts + 3 * t);
       }
-      const options1 = { duration: 6,  easingFn }
-      const options2 = { duration: 5.5,  easingFn }
-      const options3 = { duration: 5,   easingFn }
+      const options1 = { duration: 8,  easingFn }
+      const options2 = { duration: 4,  easingFn }
+      const options3 = { duration: 6,   easingFn }
 
       const _today = document.querySelector('#todayCnt').innerText.replace(/,/g, "")
       const _yday = document.querySelector('#ydayCnt').innerText.replace(/,/g, "")
       const _total = document.querySelector('#totalCnt').innerText.replace(/,/g, "")
 
-      const todayCnt = new countUp.CountUp("todayCnt", _today, {duration: 3})
-      const ydayCnt = new countUp.CountUp("ydayCnt", _yday, {duration: 4})
-      const totalCnt = new countUp.CountUp("totalCnt", _total, {duration: 5})
+      const todayCnt = new countUp.CountUp("todayCnt", _today, options1)
+      const ydayCnt = new countUp.CountUp("ydayCnt", _yday, options2)
+      const totalCnt = new countUp.CountUp("totalCnt", _total, options3)
 
       todayCnt.start();
       ydayCnt.start();
