@@ -8,15 +8,12 @@ section.blog-main-wrap
 
     script.
         const scrollEl = document.querySelector('.mouse')
-        const targetH = scrollEl?.getBoundingClientRect().top - 150;
+
 
         if(scrollEl !== null) {
-            window.addEventListener('scroll', ()=> {
-                const top = window.scrollY;
-                const op = scrollEl.style.opacity
-                if(top > targetH) scrollEl.style.opacity = 0;
-                else if(top < targetH) scrollEl.style.opacity = 1;
-            }, {passive:true})
+            scrollEl.addEventListener('click', ()=> {
+                window.scroll({top : window.innerHeight - 55, behavior: 'smooth'});
+            })
         }
     
     style.
@@ -105,6 +102,7 @@ section.blog-main-wrap
             border: 1px solid #fff;
             border-radius: 20px;
             transition: opacity 0.3s ease;
+            cursor: pointer;
         }
         .mouse-wheel {
             width: 10px;
