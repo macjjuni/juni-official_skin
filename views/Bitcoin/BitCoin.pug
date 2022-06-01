@@ -1,6 +1,7 @@
 div.price-wrap
     div.slide-wrap
-        span(class="item-BTC") BTC
+        span(class="item-BTC")
+            i(class="bx bxl-bitcoin")
         span(class="item-ETH") ETH
         span(class="item-XRP") XRP
         span(class="item-LTC") LTC
@@ -16,12 +17,13 @@ div.price-wrap
             axios.get(upbit + crypto).then(res => {
                 const data = res.data;                
                 res.data.forEach((el, idx) => {
+                    const pirceBar = el.market.substr(4,4) === "BTC" ? `<span class="ticker-txt"><i class='bx bxl-bitcoin bx-xs'></i></span><span class="ticker-price-rise">${el.trade_price.toLocaleString()}</span>` : `<span class="ticker-txt">${el.market.substr(4,4)} :</span><span class="ticker-price-rise">${el.trade_price.toLocaleString()}</span>`;
                     if(el.change === "RISE"){
-                        slideBar.children[idx].innerHTML = `<span class="ticker-txt">${data[idx].market.substr(4,4)} :</span><span class="ticker-price-rise">${data[idx].trade_price.toLocaleString()}</span>`;
+                        slideBar.children[idx].innerHTML = pirceBar;
                     }else if(el.change === "FALL"){
-                        slideBar.children[idx].innerHTML = `<span class="ticker-txt">${data[idx].market.substr(4,4)} :</span><span class="ticker-price-fall">${data[idx].trade_price.toLocaleString()}</span>`;
+                        slideBar.children[idx].innerHTML = pirceBar;
                     }else{
-                        slideBar.children[idx].innerHTML = `<span class="ticker-txt">${data[idx].market.substr(4,4)} :</span><span class="ticker-price-same">${data[idx].trade_price.toLocaleString()}</span>`;
+                        slideBar.children[idx].innerHTML = pirceBar;
                     }
                 })          
             }).catch(err => {
@@ -43,11 +45,17 @@ div.price-wrap
             z-index: 9998;
         }
         .ticker-txt{ color: #fff !important; }
+        .bxl-bitcoin { 
+            color: #ef8e18; 
+            margin-top: 2px;
+        }
         .slide-wrap>span{
             position: absolute;
             top: 50%; left: 110%;
             transform: translate(0, -50%);
-            display: inline-block;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             width: 130px;
             height: 20px;
             white-space: nowrap;
@@ -78,9 +86,9 @@ div.price-wrap
             font-style: italic;
             font-family: 'IBM Plex Sans', sans-serif;
         }
-        .ticker-price-fall{ color: #f6465d; }
-        .ticker-price-rise{	color: #0ecb81; }
-        .ticker-price-same{ color: #fff; }
+        .ticker-price-fall{ color: #f6465d; margin: 0; }
+        .ticker-price-rise{	color: #0ecb81; margin: 0; }
+        .ticker-price-same{ color: #fff; margin: 0; }
         .item-BTC{ animation: slidingSlow 20s 0s linear infinite; }
         .item-ETH{ animation: slidingSlow 20s 4s linear infinite; }
         .item-XRP{ animation: slidingSlow 20s 8s linear infinite; }
