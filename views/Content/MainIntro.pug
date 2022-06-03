@@ -17,6 +17,7 @@ section.blog-main-wrap
         }
     
     style.
+
         .blog-main-wrap {
             position: relative;
             display: flex;
@@ -35,21 +36,15 @@ section.blog-main-wrap
             position: relative;
             width: 500px;
             height: 70px;
-            margin-bottom: 40px;
+            margin: 0 140px 40px 0;
             white-space: nowrap;
         }
         .focus, .mask {
             letter-spacing: 2px;
-            font-size: 63px;
+            font-size: 65px;
             font-family: Arial;
             text-transform: uppercase;
             color: #fff;
-        }
-        @media not all and (min-resolution:.001dpcm) { 
-            @supports (-webkit-appearance:none) {
-                /* 이 안에 Safari(10.1 이상)에서만 적용할 스타일 작성 */
-                .focus, .mask { font-size: 65px; }
-            }
         }
         .focus {
             position: absolute;
@@ -60,7 +55,7 @@ section.blog-main-wrap
         }
         .mask {
             position: absolute;
-            left: -7px;
+            left: -6px;
             top: -2px;
             width: 70px;
             font-weight: bold;
@@ -86,10 +81,10 @@ section.blog-main-wrap
         }
 
         @keyframes mask { 
-            to { transform: translateX(430px); } 
+            to { transform: translateX(435px); } 
         }
         @keyframes text { 
-            to { transform: translateX(-430px); } 
+            to { transform: translateX(-435px); } 
         }
         @keyframes maskM { 
             to { transform: translateX(280px); } 
@@ -100,7 +95,7 @@ section.blog-main-wrap
 
         .mouse {
             position: absolute;
-            bottom: 2rem; left: 50%;
+            bottom: 2rem; left: calc(50% - 140px);
             transform: translate(-50%, 0);
             display: flex;
             width: 30px; height: 50px;
@@ -119,7 +114,13 @@ section.blog-main-wrap
         }
         .dark .mouse { border: 1px solid #696969; }
         .dark .mouse-wheel { background-color: #b3b3b3; }
-        
+
+
+        @media screen and (max-width: 900px) {
+            .effect-wrap { margin: 0 0 40px 0; }
+            .mouse { left: 50%; }
+        }
+
         @media screen and (max-width: 700px) {
             .effect-wrap { width: 320px; }
             .focus, .mask { font-size: 40px; }
