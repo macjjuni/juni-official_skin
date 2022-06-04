@@ -42,8 +42,13 @@ block macjjuni
       position: relative;
       top: 2px;
     }
-    body {
+    html, body {
       transition: background-color 0.33s ease ;
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
+    }
+    html::-webkit-scrollbar, body::-webkit-scrollbar {
+      display: none;
     }
     #macjjuni { 
       position: relative;
