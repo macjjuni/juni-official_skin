@@ -106,6 +106,10 @@ block macjjuni
   script(scoped).
     //- AOS.init();
     window.addEventListener('DOMContentLoaded', () => {
+      // 스크롤바 위치 표시
+      const scrollY = (window.scrollY / (allHeight - window.innerHeight) * 100).toFixed(3);
+      scrollBar.style.width = scrollY + "%";
+
       // post-item 홀수인 경우 짝수로 만들기
       const articleWrap = document.querySelector('.article-wrap');
       if(articleWrap && articleWrap.children.length % 2 !== 0) {
@@ -114,9 +118,11 @@ block macjjuni
         newArti.style.margin = "0";
         articleWrap.appendChild(newArti);
       }
+
       // 카테고리 텍스트 제거
       document.querySelector('.link_tit').style.display = 'none'; 
       document.querySelector('body').classList.add('load-done')
+
       // 0개 댓글 표시하기
       const postCnt = document.querySelectorAll('.post-commentCnt')
       if(postCnt !== null) {
@@ -130,9 +136,9 @@ block macjjuni
         const tc = ts * t;
         return b + c * (tc + -3 * ts + 3 * t);
       }
-      const options1 = { duration: 8,  easingFn }
-      const options2 = { duration: 4,  easingFn }
-      const options3 = { duration: 6,   easingFn }
+      const options1 = { duration: 7.5,  easingFn }
+      const options2 = { duration: 7,  easingFn }
+      const options3 = { duration: 6.5,   easingFn }
 
       const _today = document.querySelector('#todayCnt').innerText.replace(/,/g, "")
       const _yday = document.querySelector('#ydayCnt').innerText.replace(/,/g, "")

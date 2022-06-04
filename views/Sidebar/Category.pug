@@ -23,28 +23,35 @@ div.cate-wrap
         })
 
     style.
-        .cate-wrap {
-            margin-top: 25px;
+        .cate-wrap { margin-top: 25px; }
+        .list-wrap { 
+            padding-left: 4px;
+            margin-bottom: 25px;
         }
-        .list-wrap {
-            padding: 25px 0 25px 4px;
-            border-top: 1px solid #dddddd;
-        }
-        .link_tit {
-            display: none;
-        }
-        .list-wrap > h3 {
+        .link_tit { display: none; }
+        .list-wrap>h3{
+            position: sticky;
+            top: 20px;
             display: flex;
             justify-content: flex-start;
             align-items: center;
+            padding: 15px 0;
+            margin-bottom: 15px;
             font-size: 1.3rem;
             font-weight: bold;
+            border-bottom: 1px solid #dddddd;
+            background-color: #fff;
+            transition: background-color 0.3s ease;
+            z-index: 1;
+        }
+        .dark .list-wrap>h3{
+            background-color: #2a2c31;
         }
         .bx-code-alt, .bx-category{
             margin-right: 0.5rem;
         }
         .list-wrap>ul {
-            padding: 0.6rem 0 0 0.5rem;
+            padding-left: 5px;
         }
         .list-wrap>ul>li>a, .category_list>li>a {
             position: relative;

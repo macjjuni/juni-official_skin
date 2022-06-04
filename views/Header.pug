@@ -1,7 +1,7 @@
 header.header
   include Header/Title
   include Header/RightMenu
-  span.status-bar
+  span.scrollBar
 
     script.
       let allHeight = document.querySelector('body').clientHeight;
@@ -9,10 +9,10 @@ header.header
         allHeight = document.querySelector('body').clientHeight;
       })
       // 헤더 상태바 
-      const statusBar = document.querySelector('.status-bar');
+      const scrollBar = document.querySelector('.scrollBar');
       window.addEventListener('scroll', () => {
         const scrollY = (window.scrollY / (allHeight - window.innerHeight) * 100).toFixed(3);
-        statusBar.style.width = scrollY + "%";
+        scrollBar.style.width = scrollY + "%";
       }, {passive: true})
       window.addEventListener('resize', () => {
         allHeight = document.querySelector('body').clientHeight;
@@ -32,12 +32,15 @@ header.header
       overflow: hidden;
       z-index: 9990;
     }
-    .status-bar {
+    .scrollBar {
       position: absolute; bottom: 0; left: 0;
-      width: 0%; height: 2px;
-      background-color: #000;
+      width: 0%; height: 4px;
+      border-top-right-radius: 2px;
+      border-bottom-right-radius: 2px;
+      background: #12c2e9;  /* fallback for old browsers */
+      background: -webkit-linear-gradient(to right, #f64f59, #c471ed, #12c2e9);  /* Chrome 10-25, Safari 5.1-6 */
+      background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
       transition: background-color 0.3s ease;
     }
-    .dark .status-bar { background-color: #fff; }
 //- background-color: rgba(246, 246, 246, 0.5);
 //- backdrop-filter: blur(2px);
