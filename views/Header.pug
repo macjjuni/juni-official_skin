@@ -4,8 +4,11 @@ header.header
   span.status-bar
 
     script.
-      // 헤더 상태바 
       let allHeight = document.querySelector('body').clientHeight;
+      window.addEventListener('load', ()=> {
+        allHeight = document.querySelector('body').clientHeight;
+      })
+      // 헤더 상태바 
       const statusBar = document.querySelector('.status-bar');
       window.addEventListener('scroll', () => {
         const scrollY = (window.scrollY / (allHeight - window.innerHeight) * 100).toFixed(3);
