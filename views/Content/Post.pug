@@ -53,7 +53,7 @@ s_article_rep
                 contentSelector: '.content-wrap',
                 headingSelector: 'h2, h3, h4',
                 hasInnerContainers: false,
-                headingsOffset: -100,
+                headingsOffset: -200,
                 scrollSmooth: true,
                 headingsOffset: -(thumbHeight+200)
             });
@@ -135,7 +135,7 @@ s_article_rep
             flex-wrap: wrap;
             align-content: center;
             position: absolute;
-            bottom: 83px; left: 0;
+            bottom: 15%; left: 0;
             width: 100%;
             padding: 60px 40px;
             background-color: rgba(0,0,0,0.5);
@@ -200,6 +200,9 @@ s_article_rep
         .post-content p {
             line-height: 1.6;
         }
+        .post-content b {
+            font-weight: bold;
+        }
         #tt-body-page p[data-ke-size='size18'], p[data-ke-size='size18'] {
             font-size: 1rem !important;
         }
@@ -236,13 +239,15 @@ s_article_rep
         .dark figure[data-ke-type='opengraph'] div.og-text p.og-title, #tt-body-page figure[data-ke-type='opengraph'] div.og-text p.og-title {
             color: inherit;
         }
-        figure[data-ke-type='opengraph'] a, #tt-body-page figure[data-ke-type='opengraph'] a {
-            border: 1px solid #e4e4e4 !important;
-        }
+
         figure[data-ke-type='opengraph'] div.og-image {
-            border-right: 1px solid #e4e4e4 !important;
+            border-right: 1px solid #e4e4e4;
         }
-        .dark figure[data-ke-type='opengraph'] a, #tt-body-page figure[data-ke-type='opengraph'] a {
+        figure[data-ke-type='opengraph'] a, #tt-body-page figure[data-ke-type='opengraph'] a {
+            border: 1px solid #e4e4e4;
+        }
+
+        .dark figure[data-ke-type='opengraph'] a, .dark #tt-body-page figure[data-ke-type='opengraph'] a {
             border: 1px solid #676767 !important;
         }
         .dark figure[data-ke-type='opengraph'] div.og-image {
@@ -370,6 +375,7 @@ s_article_rep
             font-size: 16px;
             letter-spacing: .4px;
         }
+        .dark pre>.hljs { background-color: #242935; }
         .dark pre>.hljs{
             background-color: #393b40;
         }
