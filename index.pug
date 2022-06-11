@@ -104,8 +104,9 @@ block macjjuni
       include views/Footer/Footer
 
   script(scoped).
-    let allHeight = document.querySelector('body').clientHeight;
     //- AOS.init();
+    let allHeight = document.querySelector('body').clientHeight;
+    
     window.addEventListener('DOMContentLoaded', () => {
       // 스크롤바 위치 표시
       const scrollY = (window.scrollY / (allHeight - window.innerHeight) * 100).toFixed(3);
@@ -157,7 +158,7 @@ block macjjuni
       const load = document.querySelector('.load-bg'); // 로딩 스피너
       load.style.opacity = 0;
 
-      setTimeout(()=> { load.style.display = 'none'; }, 700)
+      setTimeout(()=> { load.style.display = 'none'; }, 610)
 
     })
     
