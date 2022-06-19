@@ -21,7 +21,7 @@ s_rp_input_form.commentWrite
         input(type="submit" value="댓글 달기" onclick="[##_rp_onclick_submit_##]")
 
     style.
-        .commentWrite > h2 {
+        .commentWrite>h2 {
             display: flex;
             justify-content: flex-start;
             align-items: center;
@@ -30,7 +30,7 @@ s_rp_input_form.commentWrite
             font-weight: bold;
         }
         .bx-chat { margin-right: 0.5rem; }
-        .commend-input > textarea {
+        .commend-input>textarea {
             display: block;
             color: #777777;
             width: 100%; height: 80px;
@@ -43,7 +43,7 @@ s_rp_input_form.commentWrite
             outline: none;
             transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
         }
-        .dark .commend-input > textarea, .dark .name-wrap>input, .dark .pw-wrap>input {
+        .dark .commend-input>textarea, .dark .name-wrap>input, .dark .pw-wrap>input {
             color: #adadad;
             border: 1px solid #4f4f4f;
             border-radius: 3px;
@@ -55,17 +55,17 @@ s_rp_input_form.commentWrite
             align-items: center;
             margin: 0.5rem 0 1rem;
         }
-        .writer-wrap > div {
+        .writer-wrap>div {
             display: flex;
             justify-content: center;
             align-items: center;
         }
-        .write-wrap > input {
+        .write-wrap>input {
             width: 100%; 
-            height: 40px;
-            font-size: 1rem;
+            height: 44px;
+            font-size: 17px;
             border: none;
-            border-radius: 2px;
+            border-radius: 3px;
             color: #fff;
             background-color: #12c2e9;  /* fallback for old browsers */
             background: linear-gradient(to left, #f64f59, #c471ed, #12c2e9);
@@ -75,16 +75,16 @@ s_rp_input_form.commentWrite
             cursor: pointer;
         }
         .pw-wrap { margin-left: 0.75rem; }
-        .pw-wrap > input { 
+        .pw-wrap>input { 
             font-family: sans-serif;
             margin-left: 0.5rem; 
         }
-        .name-wrap > label, .pw-wrap > label {
+        .name-wrap>label, .pw-wrap>label {
             margin-right: 0.4rem;
         }
-        .name-wrap > input, .pw-wrap > input, .hp-wrap > input {
+        .name-wrap>input, .pw-wrap>input, .hp-wrap>input {
             width: 150px;
-            padding: 5px 6px;
+            padding: 8px;
             color: #777777;
             font-size: 15px;
             border: 1px solid #cccccc;
@@ -93,7 +93,7 @@ s_rp_input_form.commentWrite
         }
 
         @media screen and (max-width: 720px) {
-            .name-wrap>input, .pw-wrap>input, .hp-wrap>input { width: 100px; }
+            .name-wrap>input, .pw-wrap>input, .hp-wrap>input { width: 120px; }
             .name-wrap>label, .pw-wrap>label { display: none;  }
             .pw-wrap { margin-left: 0; }
             .commend-wrap { padding: 2rem 0 0rem 0; }
