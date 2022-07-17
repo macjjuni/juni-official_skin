@@ -2,7 +2,7 @@
   "scripts": {
     "start": "tidory start",
     "preview": "tidory preview",
-    "build": "tidory production",
+    "build": "tidory production && tidory deploy",
     "store": "tidory store",
     "deploy": "tidory deploy",
     "lint": "eslint --ext .js --ignore-path .gitignore . && pug-lint ."

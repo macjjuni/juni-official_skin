@@ -194,6 +194,22 @@ s_article_rep
             color: #bcbcbc;
             background: #50525d;
         }
+        #tt-body-page blockquote[data-ke-style='style2'] {
+            background: #f5f5f5;
+            border-left: 5px solid #cecece;
+            font-size: 15px;
+            line-height: 28px;
+            padding: 3px 0 3px 15px;
+            margin: 25px 0 25px 3px;
+            transition: 0.3s ease;
+        }
+        .dark blockquote[data-ke-style='style2'] {
+            background: #393b40 !important;
+        }
+        .dark blockquote[data-ke-style='style2'] > b {
+            color: #fff;
+        }
+
         hr[data-ke-style], #tt-body-page hr[data-ke-style] {
             cursor: default !important;
         }
@@ -224,9 +240,15 @@ s_article_rep
             margin: 1rem 0;
         }
         .post-content ul>li, .post-content ol>li {
-            padding: 10px 0;
-            font-size: 1rem;
+            padding: 5px 0;
+            font-size: 16px;
             line-height: 1.5;
+        }
+        .post-content ul>li b, .post-content ol>li b {
+            color: #000;
+        }
+        .dark .post-content ul>li b, .post-content ol>li b {
+            color: #fff;
         }
         .dark .post-content h2, .dark .post-content h3, .dark .post-content h4, .dark .post-content h2 b, .dark .post-content h3 b, .dark .post-content h4 b {
             color: #dce2e8 !important;
@@ -290,6 +312,9 @@ s_article_rep
         .dark .post-commend {
             border-top: 1px solid #727272;
         }
+
+
+
         @media screen and (max-width: 1300px) {
             .post-toc { display: none; }
         }
