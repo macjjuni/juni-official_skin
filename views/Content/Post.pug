@@ -194,6 +194,9 @@ s_article_rep
             color: #bcbcbc;
             background: #50525d;
         }
+        blockquote {
+            transition: 0.3s ease;
+        }
         #tt-body-page blockquote[data-ke-style='style2'] {
             background: #f5f5f5;
             border-left: 5px solid #cecece;
@@ -201,13 +204,17 @@ s_article_rep
             line-height: 28px;
             padding: 3px 0 3px 15px;
             margin: 25px 0 25px 3px;
-            transition: 0.3s ease;
         }
         .dark blockquote[data-ke-style='style2'] {
             background: #393b40 !important;
         }
         .dark blockquote[data-ke-style='style2'] > b {
             color: #fff;
+        }
+        .dark blockquote[data-ke-style='style3'] {
+            border: 1px solid #747474 !important;
+            background: #2e2e2e !important;
+            color: #d6d6d6 !important;
         }
 
         hr[data-ke-style], #tt-body-page hr[data-ke-style] {
