@@ -4,11 +4,12 @@ header.header
   span.scrollBar
 
     script.
+      const scrollBar = document.querySelector('.scrollBar');
       window.addEventListener('load', ()=> {
         allHeight = document.querySelector('body').clientHeight;
       })
       // 헤더 상태바 
-      const scrollBar = document.querySelector('.scrollBar');
+      
       window.addEventListener('scroll', () => {
         const scrollY = (window.scrollY / (allHeight - window.innerHeight) * 100).toFixed(3);
         scrollBar.style.width = scrollY + "%";

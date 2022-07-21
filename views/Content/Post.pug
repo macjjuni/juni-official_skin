@@ -26,7 +26,10 @@ s_article_rep
                         include CommentWrite
                         include CommentList
                 include ../Ads/PostBottom
-            div.post-toc
+            div.post-toc-wrap
+                div.post-toc
+                div.post-toc-ads
+                    include ../Ads/SideAds
 
     script(scoped).
         // post toc
@@ -80,14 +83,17 @@ s_article_rep
         }
         .content ~ .paging { display: none; }
 
-        .post-toc {
+        .post-toc-wrap {
             position: sticky;
             top: 70px;
-            display: block;
             width: 260px;
+        }
+
+        .post-toc {
+            position: relative;
+            display: block;
             margin-left: 1rem;
             padding: 12px 7px;
-            border-radius: 2px;
             overflow: hidden;
             transition: margin-top 0.1s ease, background-color 0.33s ease;
         }
