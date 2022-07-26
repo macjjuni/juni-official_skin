@@ -36,7 +36,7 @@ div.commentList
                                             button.commend-write(href='#', onclick='[##_rp_rep_onclick_reply_##]')
                                                 span 댓글달기
     style.
-        .rp_general, .rp_general ~ ul>li{
+        .rp_general, .rp_general ~ ul>li, .rp_secret, .rp_secret ~ ul>li{
             padding: 10px;
             background: #f2f2f2;
             border-radius: 3px;
@@ -49,7 +49,7 @@ div.commentList
             border: 1px solid #4f4f4f;
         }
         
-        .rp_general ~ ul>li {
+        .rp_general ~ ul>li, .rp_secret ~ ul>li {
             margin-left: 30px;
             margin-top: 8px !important;
         }
