@@ -97,19 +97,30 @@ s_article_rep
             overflow: hidden;
             transition: margin-top 0.1s ease, background-color 0.33s ease;
         }
-
+        a.toc-link {
+            position: relative;
+        }
         .toc-link::before { 
+            top: -2px !important;
+            left: -15px !important;
             width: 3px;
+            height: 180% !important;
             background-color: #dce1ee;
         }
+        .is-active-link {
+            color: #4369ff !important;
+        }
+        .dark .is-active-link {
+            color: #97ff81 !important;
+        }
         .is-active-link::before {
-            background-color: #54BC4B !important;
+            background-color: #4369ff !important;
         }
         .dark .toc-link::before { 
             background-color: #9f9f9f;
         }
         .dark .is-active-link::before {
-            background-color: #54BC4B !important;
+            background-color: #97ff81 !important;
         }
         .post-top-thumb {
             position: relative;
