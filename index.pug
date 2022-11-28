@@ -60,12 +60,16 @@ block macjjuni
       opacity: 1;
     }
     .dark * { color: #c3c8cc; }
-    #macjjuni, .header { transition: 0.33s ease; }
-    
-    .sidebar, .header { background-color: #fff; }
-
-    .dark { background-color: #232529; }
-    .dark .header, .dark .sidebar { background-color: #2a2c31; }
+    .sidebar, .header, .main { 
+      background-color: #fff; 
+      transition: 0.33s ease;
+    }
+    .dark .header, .dark .main { background-color: #2a2c31; }
+    .dark .sidebar { 
+      background-color: #2a2c31; 
+      border-right: 1px solid #515151;
+    }
+    .dark .main { background-color: #2a2c31; }
 
     @media screen and (max-width: 900px) {
       #macjjuni { padding: 55px 0 0 0; }
