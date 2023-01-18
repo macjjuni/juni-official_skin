@@ -13,7 +13,7 @@ div.price-wrap
 
         setInterval(()=>{  
             const upbit = "https://api.upbit.com/v1/ticker?markets=";
-            const crypto = "KRW-BTC,KRW-ETH,KRW-XRP,KRW-SAND,KRW-ORBS";
+            const crypto = "KRW-BTC,KRW-ETH,KRW-XRP";
             axios.get(upbit + crypto).then(res => {
                 const data = res.data;                
                 res.data.forEach((el, idx) => {
@@ -91,11 +91,11 @@ div.price-wrap
         .ticker-price-fall{ color: #f6465d; margin: 0; }
         .ticker-price-rise{	color: #0ecb81; margin: 0; }
         .ticker-price-same{ color: #fff; margin: 0; }
-        .item-BTC{ animation: slidingSlow 20s 0s linear infinite; }
-        .item-ETH{ animation: slidingSlow 20s 4s linear infinite; }
-        .item-XRP{ animation: slidingSlow 20s 8s linear infinite; }
-        .item-SAND{ animation: slidingSlow 20s 12s linear infinite; }
-        .item-ORBS{ animation: slidingSlow 20s 16s linear infinite; }
+        .item-BTC{ animation: slidingSlow 15s 0s linear infinite; }
+        .item-ETH{ animation: slidingSlow 15s 5s linear infinite; }
+        .item-XRP{ animation: slidingSlow 15s 10s linear infinite; }
+        //- .item-SAND{ animation: slidingSlow 20s 12s linear infinite; }
+        //- .item-ORBS{ animation: slidingSlow 20s 16s linear infinite; }
         @keyframes slidingSlow {
             from{ left: 100%; }
             to{ left: -150%; }
