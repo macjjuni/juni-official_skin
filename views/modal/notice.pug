@@ -1,0 +1,91 @@
+div.notice-modal
+  button.modal-close-btn X
+  p.kku-p 새로운 블로그로 이사했습니다. 😆
+  a(class="modal-link" href="https://kku.dev/" target="_blank" rel="noopener" data-source-url="https://kku.dev/")
+    div(class="kku-image")
+    div.kku-text
+      p.kku-title Home | 꾸생 블로그
+      p.kku-desc 프론트엔드 개발 블로그입니다. 사소한 것도 기록합니다 :)
+      p.kku-host kku.dev
+
+style.
+  .notice-modal {
+    position: fixed;
+    bottom: 1rem;
+    right: -150%;
+    width: 350px;
+    padding: 12px;
+    background-color: #fff;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    border-radius: 4px;
+    overflow: hidden;
+    transition: 0.5s ease;
+    z-index: 9999;
+  }
+  .dark .notice-modal {
+    background-color: #000;
+    box-shadow: rgba(241, 225, 218, 0.12) 0px 2px 4px 0px, rgba(241, 225, 218, 0.32) 0px 2px 16px 0px;
+  }
+  .notice-modal > p {
+    margin: 0;
+  }
+  .kku-p {
+    font-size: 18px;
+    margin: 0 0 10px 0 !important;
+  }
+  .modal-link {
+    display: flex;
+    width: 100%;
+    border: 1px solid #c1c1c1;
+    text-decoration: none;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .dark .modal-link {
+    border: none;
+  }
+  .kku-image {
+    width: 130px;
+    height: 130px;
+    margin: 0;
+    background: url("https://kku.dev/images/cover.png") no-repeat 50% center;
+  }
+  .kku-text {
+    position: relative;
+    width: calc(100% - 130px);
+    padding: 12px;
+  }
+  .kku-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 0 4px 0 !important;
+  }
+  .modal-link {
+    background-color: #fff;
+  }
+  .dark .modal-link {
+    background-color: #3f3f3f;
+  }
+  .kku-desc {
+    font-size: 14px;
+  }
+  .kku-host {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+  }
+  .modal-close-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 18px;
+    height: 18px;
+    padding: 0 !important;
+    outline: 0;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: none !important;
+    box-shadow: none !important;
+    background-color: inherit;
+  }

@@ -106,11 +106,13 @@ block macjjuni
       include views/sidebar
       include views/Content
       include views/Footer/Footer
+      include views/modal/notice
 
   script(scoped).
     //- AOS.init();
     let allHeight = document.querySelector('body').clientHeight;
-    
+    const scrollBar = document.querySelector('.scrollBar');
+
     window.addEventListener('DOMContentLoaded', () => {
       // 스크롤바 위치 표시
       const scrollY = (window.scrollY / (allHeight - window.innerHeight) * 100).toFixed(3);
@@ -172,6 +174,19 @@ block macjjuni
       load.style.opacity = 0;
 
       setTimeout(()=> { load.style.display = 'none'; }, 610)
+
+
+      // 블로그 이사 안내 모달
+      const noticeModal = document.querySelector('.notice-modal')
+      const modalClose = document.querySelector('.modal-close-btn')
+
+      modalClose.addEventListener('click', () => {
+        noticeModal.style.right = '-120%';
+      })
+
+      setTimeout(()=> {
+        noticeModal.style.right = '1rem';
+      }, 3000)
 
     })
     
